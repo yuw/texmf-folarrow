@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{iftex}
+\usepackage{amsmath,amscd}
+\ifluatex\usepackage{unicode-math}\setmathfont{Latin Modern Math}\fi
+\usepackage{tikz-cd}
+\usepackage{folarrow}
+\pagestyle{empty}
+\begin{document}
+% 3本線の端：矢印の尻が丸ければ丸，そうでなければ切りっぱなし
+\[
+\begin{CD}
+E @F>f>> B\\
+@FVV{\pi}V\\
+M
+\end{CD}
+\qquad
+E\folrightarrow M \quad E\foldownarrow M \quad E\xfolrightarrow{\pi}M
+\qquad
+\begin{tikzcd}
+E \arrow[r, foliated] \arrow[d, foliated] & B\\ M
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[arrows={line cap=round}]
+E \arrow[r, foliated] & B
+\end{tikzcd}
+\]
+\end{document}

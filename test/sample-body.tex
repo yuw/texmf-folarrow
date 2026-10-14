@@ -1,0 +1,55 @@
+% 組見本の本文（sample-*.texから\inputする）
+\section*{\samplefont}
+
+\subsection*{amscd}
+\[
+\begin{CD}
+V @>>> E\\
+@.     @FVV{\pi}V\\
+@.     M
+\end{CD}
+\qquad
+\begin{CD}
+V @>>> E @F>f>> E'\\
+@VVV   @FV{\pi}VV @FAA{\pi'}A\\
+M @=   M @F<<g< M
+\end{CD}
+\qquad
+\begin{CD}
+V @>>> E\\
+@.     @VV{\pi}V\\
+@.     M
+\end{CD}
+\]
+
+\subsection*{xy-pic}
+\[
+\xymatrix{
+V \ar[r] & E \ar[d]|@{fol}^{\folpad{\pi}} \\
+         & M }
+\qquad
+\xymatrix{
+E \ar[r]|@{fol}^{\folpad{f}} & B \ar[d]|@{fol}^{\folpad{p}} \ar[dl]|@{fol} \\
+M \ar[u]|@{fol}     & N \ar[l]|@{fol}_{\folpad{g}} }
+\]
+
+\subsection*{tikz-cd}
+\[
+\begin{tikzcd}
+V \arrow[r] & E \arrow[d, foliated, "\pi"] \\
+            & M
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+E \arrow[r, foliated, "f"] & B \arrow[d, foliated, "p"] \arrow[dl, foliated] \\
+M \arrow[u, foliated]      & N \arrow[l, foliated, "g"]
+\end{tikzcd}
+\]
+
+\subsection*{本文中}
+Let $\pi\colon E\foldownarrow M$ be a foliated bundle, $E\folrightarrow M$,
+$M\folleftarrow E$, $E\xfolrightarrow{\pi}M$, $E\xfolrightarrow[\text{proj}]{\pi}M$,
+and in subscripts $A_{E\folrightarrow M}$, $A_{B_{E\folrightarrow M}}$.
+\[ \mathcal{F}\subset E\folrightarrow M,\qquad E\xfolrightarrow{\text{foliated}}M \]
+
+{\Large 大きな文字：$E\folrightarrow M$，$E\foldownarrow M$}

@@ -1,0 +1,11 @@
+% folarrowの\nrightarrowとの比較：Palatino系（newpxtext，newpxmath）
+% 組み方：uplatex compare-newpx && dvipdfmx compare-newpx
+\documentclass[dvipdfmx,paper=a4,fontsize=10pt]{jlreq}
+\usepackage{amsmath,amscd}
+\usepackage{newpxtext,newpxmath}
+\usepackage{folarrow}
+\newcommand\samplefont{Palatino系（newpxtext，newpxmath）}
+\pagestyle{empty}
+\begin{document}
+\input{compare-body}
+\end{document}

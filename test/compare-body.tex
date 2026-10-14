@@ -1,0 +1,35 @@
+% \nrightarrowとの比較（compare-*.texから\inputする）
+\section*{\samplefont}
+
+\newcommand\row[2]{\texttt{\string#1} & $#2$ & {\fontsize{36}{40}\selectfont$#2$}\\[6pt]}
+\begin{center}
+\begin{tabular}{lcc}
+ & 10pt & 36pt\\\hline\noalign{\vskip6pt}
+\row\rightarrow{E\rightarrow M}
+\row\nrightarrow{E\nrightarrow M}
+\row\folrightarrow{E\folrightarrow M}
+\row\longrightarrow{E\longrightarrow M}
+\row\nleftarrow{M\nleftarrow E}
+\row\folleftarrow{M\folleftarrow E}
+\end{tabular}
+\end{center}
+
+\subsection*{本文中}
+$E\nrightarrow M$，$E\folrightarrow M$，$E\rightarrow M$．
+添字：$A_{E\nrightarrow M}$，$A_{E\folrightarrow M}$．
+
+\subsection*{図式（amscd）}
+\[
+\begin{CD}
+E @>>> E'\\
+@FVV{\pi}V @VV{\pi'}V\\
+M @F>f>> M'
+\end{CD}
+\qquad
+{\fontsize{24}{28}\selectfont
+\begin{CD}
+V @>>> E\\
+@.     @FVV{\pi}V\\
+@.     M
+\end{CD}}
+\]

@@ -1,0 +1,13 @@
+% 本文用の矢印のフォント：フォントの字形（上）と描いたもの（下）を並べる．
+% 組んだPDFからpdftotextで取り出すと，上の行の矢印は→←↓↑になる．
+\documentclass{article}
+\usepackage{folarrow}
+\newcommand\row{%
+  $A\folrightarrow B\folleftarrow C\foldownarrow D\foluparrow E
+   _{X\folrightarrow Y\foldownarrow Z_{\folleftarrow\foluparrow}}$}
+\begin{document}
+glyph: \row\par
+{\folarrowsetup{glyphs=false}draw: \row\par}
+{\large glyph: \row\par}
+{\folarrowsetup{gap=0.45}draw (gap=0.45): \row\par}
+\end{document}

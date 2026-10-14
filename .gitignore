@@ -1,0 +1,26 @@
+# TeXの中間ファイル
+*.aux
+*.log
+*.dvi
+*.fls
+*.out
+*.toc
+*.synctex.gz
+missfont.log
+
+# テストで組んだもの（test/run.shなどで作り直せる）
+test/*.pdf
+test/*-up.tex
+
+# Python
+__pycache__/
+
+# macOS
+.DS_Store
+
+# 最初に受け取った参考の画像（出どころ不明のため含めない）
+/folto.pdf
+/rfolto.pdf
+
+# CTANに出すアーカイブ（tools/ctan/mkctan.shで作る）
+/build/

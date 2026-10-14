@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{newtxtext,newtxmath}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage[lite]{folarrow}
+\begin{document}
+\[
+\begin{CD}
+V @>>> E\\
+@.     @FVV{\pi}V\\
+@.     M
+\end{CD}
+\qquad
+\begin{tikzcd}
+V \arrow[r] & E \arrow[d, foliated, "\pi"] \\
+            & M
+\end{tikzcd}
+\]
+Let $\pi\colon E \folrightarrow M$ and $E \foldownarrow M$.
+\end{document}

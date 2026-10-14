@@ -1,0 +1,11 @@
+% folarrowの\nrightarrowとの比較：Times系（txfonts）
+% 組み方：uplatex compare-tx && dvipdfmx compare-tx
+\documentclass[dvipdfmx,paper=a4,fontsize=10pt]{jlreq}
+\usepackage{amsmath,amscd}
+\usepackage{txfonts}
+\usepackage{folarrow}
+\newcommand\samplefont{Times系（txfonts）}
+\pagestyle{empty}
+\begin{document}
+\input{compare-body}
+\end{document}

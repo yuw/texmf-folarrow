@@ -1,0 +1,11 @@
+% folarrowの\nrightarrowとの比較：Times系（newtxtext，newtxmath）
+% 組み方：uplatex compare-newtx && dvipdfmx compare-newtx
+\documentclass[dvipdfmx,paper=a4,fontsize=10pt]{jlreq}
+\usepackage{amsmath,amscd}
+\usepackage{newtxtext,newtxmath}
+\usepackage{folarrow}
+\newcommand\samplefont{Times系（newtxtext，newtxmath）}
+\pagestyle{empty}
+\begin{document}
+\input{compare-body}
+\end{document}

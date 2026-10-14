@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsmath,amscd}
+\usepackage{iftex}
+% xy-picはTeX Live 2026のLuaLaTeXでは（本パッケージと無関係に）xypdfのエラーになるので外す
+\ifluatex\else\usepackage[all]{xy}\fi
+\usepackage{tikz-cd}
+\usepackage{folarrow}
+\begin{document}
+
+\section*{amscd}
+\[
+\begin{CD}
+V @>>> E\\
+@. @FVV{\pi}V\\
+@. M
+\end{CD}
+\qquad
+\begin{CD}
+V @>>> E @F>f>> E'\\
+@VVV @FV{\pi}VV @FAA{\pi'}A\\
+M @= M @F<<g< M
+\end{CD}
+\qquad
+\begin{CD}
+V @>>> E\\
+@. @VV{\pi}V\\
+@. M
+\end{CD}
+\]
+
+\ifluatex\else
+\section*{xy-pic}
+\[
+\xymatrix{
+V \ar[r] & E \ar[d]|@{fol}^{\pi} \\
+& M }
+\qquad
+\xymatrix{
+E \ar[r]|@{fol} & B \ar[d]|@{fol} \ar[dl]|@{fol} \\
+M \ar[u]|@{fol} & N \ar[l]|@{fol} }
+\]
+
+\fi
+
+\section*{tikz-cd}
+\[
+\begin{tikzcd}
+V \arrow[r] & E \arrow[d, foliated, "\pi"] \\
+& M
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+E \arrow[r, foliated] & B \arrow[d, foliated] \arrow[dl, foliated] \\
+M \arrow[u, foliated] & N \arrow[l, foliated]
+\end{tikzcd}
+\]
+
+\section*{inline}
+$E \foldownarrow M$, $E\folrightarrow M$, $M\folleftarrow E$, $M\foluparrow E$,
+$E\xfolrightarrow{\pi}M$, $E\xfolrightarrow[\text{proj}]{\pi}M$,
+$A_{E\folrightarrow M}$.
+
+\[ \mathcal{F} \subset E \folrightarrow M \]
+
+\folarrowsetup{gap=0.4}
+$E\folrightarrow M$ (gap=0.4)
+\end{document}

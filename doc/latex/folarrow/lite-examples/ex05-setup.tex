@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage[lite]{folarrow}
+\folarrowsetup{gap=0.45}  % 文書全体：斜線の間隔を少し広げる
+\begin{document}
+\[
+\begin{CD} E\\ @FVV{\pi}V\\ M \end{CD}
+\qquad
+{\folarrowsetup{span=1.5, lean=0.5}  % このグループの中だけ
+\begin{CD} E\\ @FVV{\pi}V\\ M \end{CD}}
+\qquad
+{\folarrowsetup{thickness=0.8pt}
+\begin{tikzcd} E \arrow[d, foliated, "\pi"] \\ M \end{tikzcd}}
+\qquad
+\begin{CD} E\\ @FVV{\pi}V\\ M \end{CD}
+\]
+$E \folrightarrow M$,
+{\folarrowsetup{shift=0.5}$E \folrightarrow M$},
+$E \folrightarrow M$
+\end{document}

@@ -1,0 +1,65 @@
+% unicode-mathのOpenTypeの数式フォント49書体で，本文用の矢印のOTF（左）と描いたもの（右）を並べる．
+% 組み方：lualatex t6-otf，xelatex t6-otf（pdfLaTeX，upLaTeXでは組めない）
+% GSUBにmathスクリプトのないSTIX Math（v1）には，文書の途中で切り替えられない（unicode-mathの
+% 振る舞い）ので，その行は直前の書体のままになる．
+\documentclass{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{unicode-math}
+\usepackage{folarrow}\pagestyle{empty}
+\setmathfont{latinmodern-math.otf}
+% \R[x]{…}：描いたものを組まない（Luciole MathはLuaLaTeXで↑の伸びる区切り記号が
+% 「Extensible recipe has no fixed parts」のエラーになる．folarrowとは無関係のフォントの問題）
+\newcommand\R[2][]{\setmathfont{#2}\par\noindent\makebox[5.4cm][l]{\ttfamily\small #2}%
+  $A\folrightarrow B\folleftarrow C\foldownarrow D\foluparrow E_{X\folrightarrow Y\foldownarrow Z}$\quad
+  \ifx\relax#1\relax{\folarrowsetup{glyphs=false}$A\folrightarrow B\folleftarrow C\foldownarrow D\foluparrow E_{X\folrightarrow Y\foldownarrow Z}$}\fi\par}
+\begin{document}
+\R{latinmodern-math.otf}
+\R{NewCMMath-Regular.otf}
+\R{NewCMMath-Bold.otf}
+\R{NewCMMath-Book.otf}
+\R{NewCMSansMath-Regular.otf}
+\R{STIXTwoMath-Regular.otf}
+\R{STIXMath-Regular.otf}
+\R{texgyretermes-math.otf}
+\R{texgyrepagella-math.otf}
+\R{texgyrebonum-math.otf}
+\R{texgyreschola-math.otf}
+\R{texgyredejavu-math.otf}
+\R{LibertinusMath-Regular.otf}
+\R{FiraMath-Regular.otf}
+\R{XITSMath-Regular.otf}
+\R{XITSMath-Bold.otf}
+\R{Asana-Math.otf}
+\R{Erewhon-Math.otf}
+\R{Erewhon-Math-Bold.otf}
+\R{KpMath-Regular.otf}
+\R{KpMath-Bold.otf}
+\R{KpMath-Light.otf}
+\R{KpMath-Semibold.otf}
+\R{KpMath-Sans.otf}
+\R{KpMath-SansBold.otf}
+\R{GFSNeohellenicMath.otf}
+\R{IBMPlexMath-Regular.otf}
+\R{ArsenalMath-Sans.otf}
+\R{ArsenalMath-SansBold.otf}
+\R{Concrete-Math.otf}
+\R{Concrete-Math-Bold.otf}
+\R{Euler-Math.otf}
+\R{Garamond-Math.otf}
+\R{LeteSansMath.otf}
+\R{LeteSansMath-Bold.otf}
+\R[x]{Luciole-Math.otf}
+\R{Luciole-Math-Bold.otf}
+\R{OldStandard-Math.otf}
+\R{PennstanderMath-Regular.otf}
+\R{PennstanderMath-Thin.otf}
+\R{PennstanderMath-ExtraLight.otf}
+\R{PennstanderMath-Light.otf}
+\R{PennstanderMath-Medium.otf}
+\R{PennstanderMath-SemiBold.otf}
+\R{PennstanderMath-Bold.otf}
+\R{PennstanderMath-ExtraBold.otf}
+\R{PennstanderMath-Black.otf}
+\R{XCharter-Math.otf}
+\R{XCharter-Math-Bold.otf}
+\end{document}

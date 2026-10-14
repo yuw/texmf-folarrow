@@ -1,0 +1,426 @@
+[
+ {
+  "name": "antykwatorunska",
+  "preamble": "\\usepackage[math]{anttor}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "antykwatorunskacondensed",
+  "preamble": "\\usepackage[condensed,math]{anttor}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "antykwatorunskalight",
+  "preamble": "\\usepackage[light,math]{anttor}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "antykwatorunskalightcondensed",
+  "preamble": "\\usepackage[light,condensed,math]{anttor}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "arev",
+  "preamble": "\\usepackage{arev}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "asanamath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{Asana Math}"
+ },
+ {
+  "name": "baskervaldx",
+  "preamble": "\\usepackage[lf]{Baskervaldx} % lining figures\n\\usepackage[bigdelims,vvarbb]{newtxmath} % math italic letters from Nimbus Roman\n\\usepackage[cal=boondoxo]{mathalfa} % mathcal from STIX, unslanted a bit"
+ },
+ {
+  "name": "baskervillef",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{baskervillef}\n\\usepackage[varqu,varl,var0]{inconsolata}\n\\usepackage[scale=.95,type1]{cabin}\n\\usepackage[baskerville,vvarbb]{newtxmath}\n\\usepackage[cal=boondoxo]{mathalfa}"
+ },
+ {
+  "name": "boisik",
+  "preamble": "\\usepackage{boisik}\n\\usepackage[OT1]{fontenc}"
+ },
+ {
+  "name": "charterbt",
+  "preamble": "\\usepackage[bitstream-charter]{mathdesign}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "computerconcrete",
+  "preamble": "\\usepackage{concmath}\n\\usepackage[OT1]{fontenc}"
+ },
+ {
+  "name": "computerconcreteeuler",
+  "preamble": "\\usepackage{beton}\n\\usepackage{euler}\n\\usepackage[OT1]{fontenc}"
+ },
+ {
+  "name": "computermodern",
+  "preamble": "\\usepackage[OT1]{fontenc}\n%% Do nothing else -- it's the default"
+ },
+ {
+  "name": "computermodernbright",
+  "preamble": "\\usepackage{cmbright}\n\\usepackage[OT1]{fontenc}"
+ },
+ {
+  "name": "domitian",
+  "preamble": "\\usepackage{mathpazo}\n\\usepackage{domitian}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "drm",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{drm}"
+ },
+ {
+  "name": "ebgaramond",
+  "preamble": "\\usepackage[cmintegrals,cmbraces]{newtxmath}\n\\usepackage{ebgaramond-maths}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "erewhon",
+  "preamble": "\\usepackage[proportional,scaled=1.064]{erewhon}\n\\usepackage[erewhon,vvarbb,bigdelims]{newtxmath}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "erewhon-math",
+  "preamble": "\\usepackage{unicode-math}\n\\setmathfont{Erewhon Math}\n\\setmainfont{Erewhon Regular}"
+ },
+ {
+  "name": "europeancomputerconcrete",
+  "preamble": "\\usepackage{concmath}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "europeancomputerconcreteeuler",
+  "preamble": "\\usepackage{beton}\n\\usepackage{euler}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "europeancomputermodern",
+  "preamble": "\\usepackage[T1]{fontenc}\n%% Do nothing else -- it's the default"
+ },
+ {
+  "name": "europeancomputermodernbright",
+  "preamble": "\\usepackage{cmbright}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "firasansmath",
+  "preamble": "\\usepackage[sfdefault,lining]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font\n\\usepackage[fakebold]{firamath-otf}"
+ },
+ {
+  "name": "firasansnewtxsf",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage[sfdefault,scaled=.85]{FiraSans}\n\\usepackage{newtxsf}"
+ },
+ {
+  "name": "garamond",
+  "preamble": "\\usepackage[urw-garamond]{mathdesign}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "garamondexpertmathdesign",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage[urw-garamond]{mathdesign}\n\\usepackage{garamondx}"
+ },
+ {
+  "name": "garamondexpertnewtxmath",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{garamondx}\n\\usepackage[garamondx,cmbraces]{newtxmath}"
+ },
+ {
+  "name": "gfsartemisia",
+  "preamble": "\\usepackage{gfsartemisia}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "gfsartemisiaeulermath",
+  "preamble": "\\usepackage{gfsartemisia-euler}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "gfsneohellenic",
+  "preamble": "\\usepackage[default]{gfsneohellenic}\n\\usepackage[LGR,T1]{fontenc} %% LGR encoding is needed for loading the package gfsneohellenic"
+ },
+ {
+  "name": "gfsneohellenicmath",
+  "preamble": "\\usepackage{gfsneohellenicot}"
+ },
+ {
+  "name": "heuristica",
+  "preamble": "\\usepackage{heuristica}\n\\usepackage[heuristica,vvarbb,bigdelims]{newtxmath}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "iwona",
+  "preamble": "\\usepackage[math]{iwona}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "iwonacondensed",
+  "preamble": "\\usepackage[condensed,math]{iwona}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "iwonalight",
+  "preamble": "\\usepackage[light,math]{iwona}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "iwonalightcondensed",
+  "preamble": "\\usepackage[light,condensed,math]{iwona}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "kerkis",
+  "preamble": "\\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "kpsansserif",
+  "preamble": "\\usepackage[sfmath]{kpfonts} %% sfmath option only to make math in sans serif. Probablye only for use when base font is sans serif.\n\\renewcommand*\\familydefault{\\sfdefault} %% Only if the base font of the document is to be sans serif\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "kpserif",
+  "preamble": "\\usepackage{kpfonts}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "kurier",
+  "preamble": "\\usepackage[math]{kurier}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "kuriercondensed",
+  "preamble": "\\usepackage[condensed,math]{kurier}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "kurierlight",
+  "preamble": "\\usepackage[light,math]{kurier}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "kurierlightcondensed",
+  "preamble": "\\usepackage[light,condensed,math]{kurier}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "latinmodernroman",
+  "preamble": "\\usepackage{lmodern}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "libertinusserif",
+  "preamble": "\\usepackage{libertinus}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "linuxlibertine",
+  "preamble": "\\usepackage{libertine}\n\\usepackage{libertinust1math}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "lxfonts",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{lxfonts}"
+ },
+ {
+  "name": "mlmodern",
+  "preamble": "\\usepackage{mlmodern}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "newcomputermodernroman",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{NewCMMath-Regular.otf}"
+ },
+ {
+  "name": "newpx",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{newpxtext,newpxmath}"
+ },
+ {
+  "name": "newpxeuler",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{newpxtext,eulerpx}"
+ },
+ {
+  "name": "newtx",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{newtxtext,newtxmath}"
+ },
+ {
+  "name": "notoserif",
+  "preamble": "\\usepackage{notomath}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "pxfonts",
+  "preamble": "\\usepackage{pxfonts}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "sansmathfonts",
+  "preamble": "\\usepackage{sansmathfonts}\n\\usepackage[T1]{fontenc}\n\\renewcommand*\\familydefault{\\sfdefault} %% Only if the base font of the document is to be sans serif"
+ },
+ {
+  "name": "scholax",
+  "preamble": "\\usepackage[p,osf]{scholax}\n% T1 and textcomp are loaded by package. Change that here, if you want\n% load sans and typewriter packages here, if needed\n\\usepackage{amsmath,amsthm}% must be loaded before newtxmath\n% amssymb should not be loaded\n\\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package\n% vvarbb selects the STIX version of blackboard bold."
+ },
+ {
+  "name": "step",
+  "preamble": "\\usepackage[notext]{stix}\n\\usepackage{step}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "stickstoo",
+  "preamble": "\\usepackage{stickstootext}\n\\usepackage[stickstoo,vvarbb]{newtxmath}"
+ },
+ {
+  "name": "stix",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{stix}"
+ },
+ {
+  "name": "stix2",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{stix2}"
+ },
+ {
+  "name": "txfonts",
+  "preamble": "\\usepackage{txfonts}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "urwnimbusroman",
+  "preamble": "\\usepackage{mathptmx}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "urwpalladio",
+  "preamble": "\\usepackage[sc]{mathpazo}\n\\linespread{1.05}         % Palladio needs more leading (space between lines)\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "urwschoolbookl",
+  "preamble": "\\usepackage{fouriernc}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "utopia-fouriermath",
+  "preamble": "\\usepackage{fourier}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "utopia-mathdesign",
+  "preamble": "\\usepackage[adobe-utopia]{mathdesign}\n\\usepackage[T1]{fontenc}"
+ },
+ {
+  "name": "xits",
+  "preamble": "\\usepackage{unicode-math}\n\\setmainfont{XITS}\n\\setmathfont{XITS Math}"
+ },
+ {
+  "name": "x-cochineal",
+  "preamble": "\\usepackage{cochineal}\\usepackage[cochineal]{newtxmath}"
+ },
+ {
+  "name": "x-eulervm",
+  "preamble": "\\usepackage{eulervm}"
+ },
+ {
+  "name": "x-newtxsf",
+  "preamble": "\\usepackage{newtxsf}"
+ },
+ {
+  "name": "x-fourier-only",
+  "preamble": "\\usepackage{fourier}"
+ },
+ {
+  "name": "otf-LatinModernMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{Latin Modern Math}"
+ },
+ {
+  "name": "otf-STIXTwoMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{STIX Two Math}"
+ },
+ {
+  "name": "otf-TermesMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{TeX Gyre Termes Math}"
+ },
+ {
+  "name": "otf-PagellaMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{TeX Gyre Pagella Math}"
+ },
+ {
+  "name": "otf-BonumMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{TeX Gyre Bonum Math}"
+ },
+ {
+  "name": "otf-ScholaMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{TeX Gyre Schola Math}"
+ },
+ {
+  "name": "otf-DejaVuMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{TeX Gyre DejaVu Math}"
+ },
+ {
+  "name": "otf-LibertinusMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{Libertinus Math}"
+ },
+ {
+  "name": "otf-FiraMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{Fira Math}"
+ },
+ {
+  "name": "otf-XITSMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{XITS Math}"
+ },
+ {
+  "name": "otf-MinionMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{Minion Math}"
+ },
+ {
+  "name": "otf-LatinModernMath-file",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{latinmodern-math.otf}"
+ },
+ {
+  "name": "xfile-LatinModernMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{latinmodern-math.otf}"
+ },
+ {
+  "name": "xfile-NewCMMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{NewCMMath-Regular.otf}"
+ },
+ {
+  "name": "xfile-STIXTwoMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{STIXTwoMath-Regular.otf}"
+ },
+ {
+  "name": "xfile-TermesMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{texgyretermes-math.otf}"
+ },
+ {
+  "name": "xfile-PagellaMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{texgyrepagella-math.otf}"
+ },
+ {
+  "name": "xfile-BonumMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{texgyrebonum-math.otf}"
+ },
+ {
+  "name": "xfile-ScholaMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{texgyreschola-math.otf}"
+ },
+ {
+  "name": "xfile-DejaVuMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{texgyredejavu-math.otf}"
+ },
+ {
+  "name": "xfile-LibertinusMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{LibertinusMath-Regular.otf}"
+ },
+ {
+  "name": "xfile-FiraMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{FiraMath-Regular.otf}"
+ },
+ {
+  "name": "xfile-XITSMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{XITSMath-Regular.otf}"
+ },
+ {
+  "name": "xfile-AsanaMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{Asana-Math.otf}"
+ },
+ {
+  "name": "xfile-ErewhonMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{Erewhon-Math.otf}"
+ },
+ {
+  "name": "xfile-KpMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{KpMath-Regular.otf}"
+ },
+ {
+  "name": "xfile-GFSNeohellenicMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{GFSNeohellenicMath.otf}"
+ },
+ {
+  "name": "xfile-MinionMath",
+  "preamble": "\\usepackage{unicode-math}\\setmathfont{Minion Math}"
+ },
+ {
+  "name": "computermodern-bold",
+  "preamble": "\\usepackage[OT1]{fontenc}\n%% Do nothing else -- it's the default\n\\AtBeginDocument{\\boldmath}"
+ },
+ {
+  "name": "latinmodernroman-bold",
+  "preamble": "\\usepackage{lmodern}\n\\usepackage[T1]{fontenc}\n\\AtBeginDocument{\\boldmath}"
+ },
+ {
+  "name": "newtx-bold",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{newtxtext,newtxmath}\n\\AtBeginDocument{\\boldmath}"
+ },
+ {
+  "name": "txfonts-bold",
+  "preamble": "\\usepackage{txfonts}\n\\usepackage[T1]{fontenc}\n\\AtBeginDocument{\\boldmath}"
+ },
+ {
+  "name": "newpx-bold",
+  "preamble": "\\usepackage[T1]{fontenc}\n\\usepackage{newpxtext,newpxmath}\n\\AtBeginDocument{\\boldmath}"
+ },
+ {
+  "name": "pxfonts-bold",
+  "preamble": "\\usepackage{pxfonts}\n\\usepackage[T1]{fontenc}\n\\AtBeginDocument{\\boldmath}"
+ }
+]

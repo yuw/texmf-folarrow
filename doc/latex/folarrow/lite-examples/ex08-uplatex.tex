@@ -1,0 +1,24 @@
+\documentclass[dvipdfmx]{jlreq}
+\usepackage{amscd}
+\usepackage[all]{xy}
+\usepackage{tikz-cd}
+\usepackage[lite]{folarrow}
+\begin{document}
+葉層構造をもつファイバー束$\pi\colon E \folrightarrow M$を次の図式で表す．
+\[
+\begin{CD}
+V @>>> E\\
+@.     @FVV{\pi}V\\
+@.     M
+\end{CD}
+\qquad
+\xymatrix{
+V \ar[r] & E \ar[d]|@{fol}^{\folpad{\pi}} \\
+         & M }
+\qquad
+\begin{tikzcd}
+V \arrow[r] & E \arrow[d, foliated, "\pi"] \\
+            & M
+\end{tikzcd}
+\]
+\end{document}

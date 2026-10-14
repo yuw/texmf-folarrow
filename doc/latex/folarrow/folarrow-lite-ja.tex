@@ -1,0 +1,232 @@
+% folarrow-lite-ja.tex：folarrowパッケージの簡易版（liteオプション）の説明書
+% 組み方：uplatex folarrow-lite-ja && uplatex folarrow-lite-ja && dvipdfmx folarrow-lite-ja
+% 例の出力（lite-examples/ex*-out.pdf）は，例のソースを実際に組んで作成したもの．
+\documentclass[dvipdfmx,paper=a4]{jlreq}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyvrb}
+\usepackage{url}
+\title{folarrowパッケージ 簡易版\\\large \texttt{lite}オプションの説明書}
+\date{2026年10月10日　v20261010.0}
+\newcommand\pkg[1]{\textsf{#1}}
+\newcommand\file[1]{\texttt{#1}}
+\fvset{frame=single,framesep=3mm,fontsize=\small}
+% 例：ソース（ファイルの中身をそのまま）と，組んだ結果
+% （組み方・ソース・結果を1つの箱にまとめ，途中で改ページしない．見出しとも離れない）
+\newcommand\example[2]{%
+  \par\noindent\begin{minipage}{\linewidth}
+  組み方：\texttt{#2}\par
+  \VerbatimInput{lite-examples/#1.tex}%
+  \par\noindent 結果：\par
+  \begin{center}\fbox{\includegraphics{lite-examples/#1-out.pdf}}\end{center}
+  \end{minipage}\par\medskip}
+\begin{document}
+\maketitle
+
+\section{概要}
+
+\pkg{folarrow}は，葉層束の射影を表す，軸に3本の斜線が入った矢印を，\pkg{amscd}，
+\pkg{xy-pic}，\pkg{tikz-cd}の図式と本文の数式で使えるようにするパッケージである．
+この説明書では，その簡易版（\texttt{lite}オプション）について述べる．
+\begin{Verbatim}
+\usepackage[lite]{folarrow}
+\end{Verbatim}
+簡易版は，\file{folarrow.sty}のほかのファイル（Luaのモジュール，実測データ，矢印のフォント）を使わず，
+すべての矢印を，各パッケージの通常の矢印に3本の斜線を重ねて描いて組む．矢印のフォントをPDFに
+埋め込まずに組みたいときなどに使う．
+
+\section{準備}
+
+\begin{itemize}
+\item \pkg{folarrow}パッケージをインストールする（\TeX{}の配布に含まれていれば，そのまま使える）．
+\item \LaTeX{}の2022-06-01以降が必要である．\pkg{pict2e}と\pkg{graphics}を読み込む（どちらも
+  \TeX{} Liveに含まれる）．図式には\pkg{amscd}，\pkg{xy-pic}，\pkg{tikz-cd}のうち使うものを読み込む．
+\item pdf\LaTeX，Lua\LaTeX，Xe\LaTeX，up\LaTeX{}＋dvipdfmxで使える．up\LaTeX{}では文書クラスに
+  \texttt{dvipdfmx}オプションを付ける．
+\end{itemize}
+
+\section{読み込み}
+
+\begin{Verbatim}
+\usepackage{amscd}        % 使うものだけ
+\usepackage[all]{xy}
+\usepackage{tikz-cd}
+\usepackage[lite]{folarrow}
+\end{Verbatim}
+\pkg{amscd}，\pkg{xy-pic}，\pkg{tikz-cd}は\pkg{folarrow}の前後どちらで読み込んでもよい．
+\texttt{lite}は読み込み時にだけ指定できる（あとから\verb|\folarrowsetup|では変えられない）．
+\texttt{lite}と一緒に，斜線の形のキー（\ref{sec:shape}節）を指定してもよい．
+\begin{Verbatim}
+\usepackage[lite, gap=0.45]{folarrow}
+\end{Verbatim}
+
+\section{命令}
+
+\subsection{amscd}
+通常の矢印の指定\verb|@>>>|，\verb|@<<<|，\verb|@VVV|，\verb|@AAA|の\verb|@|の直後に
+\verb|F|を付けると，斜線入りになる．ラベルの書き方は通常の矢印と同じである．
+\begin{center}
+\begin{tabular}{ll}
+\verb|@F>>>|，\verb|@F<<<| & 横向き（右，左）\\
+\verb|@FVVV|，\verb|@FAAA| & 縦向き（下，上）
+\end{tabular}
+\end{center}
+
+\subsection{xy-pic}
+矢印の途中に置く物体\verb|fol|を\verb/\ar[d]|@{fol}/のように\verb/|/で置く．矢印は途切れず，
+斜めの矢印にも使える．矢印のラベルは\verb|\folpad|で囲むと，斜線を避ける余白が付く．
+\begin{Verbatim}
+\ar[d]|@{fol}^{\folpad{\pi}}
+\end{Verbatim}
+
+\subsection{tikz-cd}
+矢印のオプションに\verb|foliated|を加える．ラベルは自動で斜線を避ける．
+\begin{Verbatim}
+\arrow[d, foliated, "\pi"]
+\end{Verbatim}
+
+\subsection{本文の数式}
+\begin{center}
+\begin{tabular}{ll}
+\verb|\folrightarrow| & 右向き（\verb|\longrightarrow|に斜線）\\
+\verb|\folleftarrow| & 左向き（\verb|\longleftarrow|に斜線）\\
+\verb|\foldownarrow|，\verb|\foluparrow| & 下向き，上向き\\
+\verb|\xfolrightarrow[下]{上}| & ラベルに合わせて伸びる右向きの矢印\\
+\verb|\xfolleftarrow[下]{上}| & ラベルに合わせて伸びる左向きの矢印
+\end{tabular}
+\end{center}
+いずれも関係記号（\verb|\mathrel|）で，添字の中でも使える．伸びる矢印は\pkg{amsmath}の
+\verb|\xrightarrow|と同じ書き方で，\verb|\longrightarrow|より短くはならない．
+
+\section{斜線の形の調整}\label{sec:shape}
+
+パッケージオプションか\verb|\folarrowsetup|で変える．\verb|\folarrowsetup|はグループの中で使えば
+その範囲だけに効く．
+\begin{center}
+\begin{tabular}{lll}
+キー & 既定値 & 意味\\\hline
+\verb|span| & 1.0 & 斜線の長さ（矢頭の幅に対する比．0より大きく10以下）\\
+\verb|lean| & 0.25 & 斜線の傾き（長さに対する，矢印方向へのずれの比．$-5$〜5）\\
+\verb|gap| & 0.35 & 斜線の間隔（矢頭の幅に対する比．0〜10）\\
+\verb|shift| & 0 & 矢印の中央から根元側へずらす量（矢頭の幅に対する比．$-10$〜10）\\
+\verb|thickness| & （空） & 線の太さ．空なら矢印の軸の太さ（推定値）
+\end{tabular}
+\end{center}
+
+\section{例}
+
+どの例も，\verb|\documentclass|から\verb|\end{document}|までをそのまま写してファイルに保存すれば組める．
+結果は実際に組んだものである（余白を切り落とした）．ほかのファイルを使わないことを確かめるため，
+\file{folarrow.sty}のほかには\pkg{folarrow}のファイルがない状態で組んだ．
+
+\subsection{amscd}
+\example{ex01-amscd}{pdflatex ex01-amscd}
+
+\subsection{xy-pic}
+\example{ex02-xypic}{pdflatex ex02-xypic}
+\TeX{} Live 2026のLua\LaTeX{}では，\pkg{xy-pic}自体がエラーになる（\pkg{folarrow}とは無関係）．
+\pkg{xy-pic}はpdf\LaTeX{}かup\LaTeX{}で使う．
+
+\subsection{tikz-cd}
+\example{ex03-tikzcd}{pdflatex ex03-tikzcd}
+
+\subsection{本文の数式}
+\example{ex04-inline}{pdflatex ex04-inline}
+
+\subsection{斜線の形の調整}
+\example{ex05-setup}{pdflatex ex05-setup}
+プリアンブルの\verb|\folarrowsetup{gap=0.45}|は文書全体に効く．グループ（\verb|{|と\verb|}|）の中で使った
+\verb|\folarrowsetup|はそのグループの中だけに効き，グループを出ると文書全体の設定に戻る．
+図式は左から，文書全体の設定（\verb|gap=0.45|），それに加えて\verb|span=1.5, lean=0.5|，
+\verb|thickness=0.8pt|（\pkg{tikz-cd}），文書全体の設定に戻ったもの．本文の数式は左から，文書全体の設定，
+それに加えて\verb|shift=0.5|（3本線を矢印の根元の側へずらす），文書全体の設定に戻ったもの．
+
+\subsection{Times系（newtx）}
+\example{ex06-times}{pdflatex ex06-times}
+
+\subsection{Palatino系（newpx）}
+\example{ex07-palatino}{pdflatex ex07-palatino}
+
+\subsection{日本語の文書（up\LaTeX{}＋dvipdfmx）}
+\example{ex08-uplatex}{uplatex ex08-uplatex \&\& dvipdfmx ex08-uplatex}
+
+\subsection{Lua\LaTeX{}とunicode-math}
+\example{ex09-lualatex}{lualatex ex09-lualatex}
+
+\subsection{Xe\LaTeX{}とunicode-math}
+\example{ex10-xelatex}{xelatex ex10-xelatex}
+
+\section{簡易版の性質と制限}
+
+\begin{itemize}
+\item 矢頭の幅と線の太さ（斜線の大きさの基準）は，Xe\LaTeX{}でOpenTypeの数式フォントを使うときは
+  グリフの外接矩形から読み（\verb|\XeTeXglyphbounds|を使う），それ以外ではフォントの寸法から推定する．
+\item 3本線は矢印の箱の中央に置く．矢印の字面（実際に塗られた部分）の中央とはずれることがあり，
+  10\,ptのComputer Modern，\pkg{newtxmath}，\pkg{newpxmath}，\pkg{txfonts}の本文用の矢印では，
+  矢印の向きに最大0.3\,pt，直交方向に0.03\,ptだった．書体によってはもっと大きくずれる．
+\item 3本線の端はつねに切りっぱなしにする．
+\item \verb|\boldmath|などでボールドにしたときも，3本線の長さと太さはフォントの寸法からの推定値になるので，
+  太字の矢印に対して3本線が細めになることがある．
+\item 組版の結果は矢印と3本線の重ね合わせなので，PDFからテキストとして取り出すと元の矢印の文字
+  （\verb|\foldownarrow|では区切り記号の部品）になる．
+\item Luciole MathはLua\LaTeX{}で，↑の伸びる区切り記号が
+  「\texttt{Extensible recipe has no fixed parts}」のエラーになる（フォントの問題で，\pkg{folarrow}を
+  使わなくても起きる）．簡易版では\verb|\foluparrow|と\pkg{amscd}の\verb|@FAAA|がこのエラーになる．
+\item Pennstander Mathでは，大きな区切り記号の↓↑が崩れる（フォントの問題）．簡易版ではそのまま
+  \verb|\foldownarrow|，\verb|\foluparrow|，\pkg{amscd}の縦向きの矢印に現れる．
+\item Xe\LaTeX{}では，\TeX{} Liveに含まれるOpenTypeのフォントを名前で指定すると見つからないことがある．
+  次のようにファイル名で指定する．
+\begin{Verbatim}
+\setmathfont{latinmodern-math.otf}
+\end{Verbatim}
+\end{itemize}
+
+\section{使うときの注意}
+
+\begin{itemize}
+\item キーの値に数でない値や範囲の外の値（\ref{sec:shape}節の表）を与えると，キーの名前と値を示すエラーになり，
+  前の値のままになる．
+\item \verb|\section|，\verb|\caption|などの引数でも使える．\pkg{hyperref}のしおりでは，矢印は→←↓↑の文字になる．
+\item \pkg{amscd}，\pkg{xy-pic}，\pkg{tikz-cd}，\pkg{unicode-math}は，\pkg{folarrow}の前後どちらで読み込んでもよい．
+\item pTeX／upTeX＋dvipdfmxの縦組みでも，3本線を縦組みに合わせて回す．縦組みの中で図式を組むときは，
+  \verb|\hbox{\yoko …}|などで横組みの箱に入れる．
+\item babelのspanishでは\pkg{amscd}そのものが使えなくなる（\pkg{folarrow}を使わなくても起きる）．
+  \verb|es-noquoting|オプションか\verb|\deactivatequoting|を使う．
+\item \pkg{xy-pic}で色を付けた矢印では，\verb/\ar@[red][r]|*[red]\dir{fol}/のように3本線にも色を指定する．
+\item 大きな文字では，\pkg{amsmath}かexscaleを読み込むとよい（縦向きの矢印が小さいままにならないように）．
+\end{itemize}
+
+\section{完全版との違い}
+
+\texttt{lite}を付けない完全版は，\file{folarrow.sty}のほかに次のファイルを使って，より正確に組む．
+\begin{center}
+{\renewcommand\arraystretch{1.3}%
+\begin{tabular}{>{\raggedright\arraybackslash}p{.25\linewidth}%
+  >{\raggedright\arraybackslash}p{.38\linewidth}>{\raggedright\arraybackslash}p{.27\linewidth}}
+ & 完全版 & 簡易版（\texttt{lite}）\\\hline
+必要なファイル & \file{folarrow.sty}，\file{folarrow.lua}，実測データと矢印のフォントの表（\file{.def}），
+  矢印のフォント（Type~1，OTF）とマップファイル & \file{folarrow.sty}だけ\\
+本文用の矢印 & 3本線入りのフォントの1文字（主な書体） & 矢印に3本線を描く\\
+テキストとしての値 & →←↓↑ & 元の矢印の文字\\
+矢頭の幅と線の太さ & 実測データ，グリフの形（Lua\LaTeX，Xe\LaTeX{}） & 推定（Xe\LaTeX{}ではグリフの形）\\
+3本線の中央からのずれ & 0.015\,pt以下（本文用の矢印） & 最大0.3\,ptほど\\
+3本線の端 & 矢印の尻に合わせて丸か切りっぱなし & つねに切りっぱなし
+\end{tabular}}
+\end{center}
+完全版の使い方と検証の結果は，説明書\file{folarrow-ja.pdf}にある．
+
+\section{ライセンスと作者}
+
+\file{folarrow.sty}，\file{folarrow.lua}，\file{.def}ファイル，説明書，ツールは，MITライセンス
+（\file{LICENSE}）で配布する．矢印のフォント（\file{fonts/}）は元のフォントから作ったもので，元のフォントの
+ライセンス（SIL Open Font License 1.1，GUST Font License，フォントの例外付きのGNU GPL）を引き継ぐ．
+フォントごとの元のフォント，元の著作権表示，ライセンスは\file{licenses/FONTS.md}にあり，ライセンスの本文も
+\file{licenses/}に置いた．
+
+作者：Yuwsuke Kieda
+
+\end{document}

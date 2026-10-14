@@ -1,0 +1,36 @@
+%% folarrow-glyphs.def：本文用の矢印のフォントがある記号フォント
+%% 矢印のフォントは元のフォントから作成した．\fol@glyphfont{記号フォントの名前}{このフォントのファイル名}
+\fol@glyphfont{cmbsy10}{folcmb10}
+\fol@glyphfont{cmbsy5}{folcmb5}
+\fol@glyphfont{cmbsy6}{folcmb6}
+\fol@glyphfont{cmbsy7}{folcmb7}
+\fol@glyphfont{cmbsy8}{folcmb8}
+\fol@glyphfont{cmbsy9}{folcmb9}
+\fol@glyphfont{cmsy10}{folcm10}
+\fol@glyphfont{cmsy5}{folcm5}
+\fol@glyphfont{cmsy6}{folcm6}
+\fol@glyphfont{cmsy7}{folcm7}
+\fol@glyphfont{cmsy8}{folcm8}
+\fol@glyphfont{cmsy9}{folcm9}
+\fol@glyphfont{lmbsy10}{follmb10}
+\fol@glyphfont{lmbsy5}{follmb5}
+\fol@glyphfont{lmbsy7}{follmb7}
+\fol@glyphfont{lmsy10}{follm10}
+\fol@glyphfont{lmsy5}{follm5}
+\fol@glyphfont{lmsy6}{follm6}
+\fol@glyphfont{lmsy7}{follm7}
+\fol@glyphfont{lmsy8}{follm8}
+\fol@glyphfont{lmsy9}{follm9}
+\fol@glyphfont{ntxbsy}{folntxb}
+\fol@glyphfont{ntxbsy5}{folntxb5}
+\fol@glyphfont{ntxbsy7}{folntxb7}
+\fol@glyphfont{ntxsy}{folntx}
+\fol@glyphfont{ntxsy5}{folntx5}
+\fol@glyphfont{ntxsy7}{folntx7}
+\fol@glyphfont{pxbsy}{folpxb}
+\fol@glyphfont{pxsy}{folpx}
+\fol@glyphfont{txbsy}{foltxb}
+\fol@glyphfont{txsy}{foltx}
+\fol@glyphfont{zplbsy}{folzplb}
+\fol@glyphfont{zplsy}{folzpl}
+\endinput
