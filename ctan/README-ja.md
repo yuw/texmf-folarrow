@@ -62,7 +62,7 @@
 
 ## インストール
 
-`folarrow.tds.zip`をTEXMFツリーに展開するか，次の場所に配置する．
+TEXMFツリーの次の場所に配置する．
 
 | ファイル | 置き場所 |
 |---|---|
@@ -83,7 +83,6 @@ pdfLaTeX，LuaLaTeX，dvipdfmx，xdvipdfmxでは`folarrow.map`を自動で読み
 - `source/`：矢印フォントを生成するPythonスクリプト（次節を参照）である．
 - `LICENSE`：本パッケージのMITライセンスである．
 - `licenses/`：フォントのライセンス本文と，元フォント・著作権表示・ライセンスの一覧`FONTS.md`を収録するディレクトリである．
-- `folarrow.tds.zip`：同じファイルをTDS形式に配置したものである．
 
 ## 矢印のフォントのソース
 
@@ -92,7 +91,7 @@ pdfLaTeX，LuaLaTeX，dvipdfmx，xdvipdfmxでは`folarrow.map`を自動で読み
 - `source/mkfolfonts.py`：Type 1のフォント，そのTFM，`folarrow.map`，`folarrow-glyphs.def`を作る．
 - `source/mkfolotf.py`：OpenTypeのフォントと`folarrow-otf.def`を作る．
 
-スクリプトはTeX Liveの元フォントから矢印のアウトラインを取り出し，3本線を加えるものである．Python 3のfontTools，skia-pathopsと，TeX Liveのkpsewhich，tftopl，vftovp，pltotf，t1asmが必要である．出力先は環境変数`FOLARROW_ROOT`で指定するTDSツリーであり，`tex/latex/folarrow/folarrow-fonts.def`がなければ停止する．`folarrow.tds.zip`を展開し，次のように実行する．
+スクリプトはTeX Liveの元フォントから矢印のアウトラインを取り出し，3本線を加えるものである．Python 3のfontTools，skia-pathopsと，TeX Liveのkpsewhich，tftopl，vftovp，pltotf，t1asmが必要である．出力先は環境変数`FOLARROW_ROOT`で指定するTDSツリーであり，`tex/latex/folarrow/folarrow-fonts.def`がなければ停止する．たとえば，インストールの節の表のとおりにパッケージのファイルをあるディレクトリに配置し（TDSツリー），次のように実行する．
 
 ```sh
 FOLARROW_ROOT=/path/to/the/tree python3 source/mkfolfonts.py

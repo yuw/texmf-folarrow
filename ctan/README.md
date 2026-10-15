@@ -67,7 +67,7 @@ The manuals are in English and Japanese, with the same contents.
 
 ## Installation
 
-Unpack `folarrow.tds.zip` into a TEXMF tree, or install the files as follows:
+Install the files in a TEXMF tree as follows:
 
 | Files | Location |
 |---|---|
@@ -92,7 +92,6 @@ For dvips, enable it with `updmap` (in TeX Live: `updmap-user --enable Map=folar
 - `LICENSE`: the MIT License of the package.
 - `licenses/`: license texts of the arrow fonts, and `FONTS.md`, the list of the arrow
   fonts with their original fonts, original copyright notices and licenses.
-- `folarrow.tds.zip`: the same files in the TDS layout.
 
 ## Sources of the arrow fonts
 
@@ -106,7 +105,8 @@ The scripts add three strokes to arrow outlines from the original TeX Live fonts
 require Python 3 with fontTools and skia-pathops, plus TeX Live's kpsewhich, tftopl,
 vftovp, pltotf and t1asm. Output goes to the TDS tree specified by `FOLARROW_ROOT`,
 which must contain `tex/latex/folarrow/folarrow-fonts.def`; otherwise, the scripts stop
-without writing. For example, unpack `folarrow.tds.zip` into a directory and run
+without writing. For example, arrange the files of the package in a directory as in the
+table of the Installation section (a TDS tree) and run
 
 ```sh
 FOLARROW_ROOT=/path/to/the/tree python3 source/mkfolfonts.py

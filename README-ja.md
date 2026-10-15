@@ -182,7 +182,6 @@ python3 mkreport.py           # doc/latex/folarrow/folarrow-verify.tex，folarro
 
 `tex/latex/folarrow/`の`folarrow.sty`，`folarrow-fonts.def`，`folarrow-glyphs.def`，`folarrow.lua`と，`folarrow-otf.def`と，`fonts/`以下（`type1/public/folarrow/`，`tfm/public/folarrow/`，`map/dvips/folarrow/`，`opentype/public/folarrow/`）をTEXMFツリーに置く．
 このリポジトリ自体をTEXMFHOMEとして使うこともできる．
-CTANの配布物（`folarrow.zip`）には，TDSの形に並べた`folarrow.tds.zip`も入っているので，それをTEXMFツリーに展開してもよい．
 dvipsで使うときは，`updmap`で`folarrow.map`を登録する（pdfLaTeX，LuaLaTeX，dvipdfmx，xdvipdfmxではパッケージが読み込むので要らない）．
 
 ```bash

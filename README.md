@@ -79,7 +79,7 @@ The manuals are in English and Japanese, with the same contents.
 ## Installation
 
 This repository is in the TDS layout; it can be used as `TEXMFHOME` as it is.
-From the CTAN package, unpack `folarrow.tds.zip` into a TEXMF tree, or put the files as follows:
+From the CTAN package, put the files as follows:
 
 | Files | Location |
 |---|---|

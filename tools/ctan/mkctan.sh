@@ -1,6 +1,8 @@
 #!/bin/sh
 # CTANに出すアーカイブを作る．
-#   build/ctan/folarrow.zip（展開するとfolarrow/．その中にfolarrow.tds.zipも入れる）
+#   build/ctan/folarrow.zip（展開するとfolarrow/．CTANに出すのはこれだけ）
+#   build/ctan/folarrow.tds.zip（同じファイルをTDSの形に並べたもの．空のTEXMFに入れて組むテスト用で，
+#     CTANには出さない．CTANは，配布の側が求めない限り.tds.zipを置かない方針）
 # 生成スクリプトのうち，矢印のフォントを作る2本（tools/fontbuild/mkfolfonts.py，mkfolotf.py）だけを
 # フォントのソースとしてsource/に入れる．ほかのスクリプト（tools/），説明書の例を組むスクリプト
 # （*/build.sh），テスト（test/）は入れない．READMEはこのリポジトリのREADME.md，README-ja.mdではなく，
@@ -15,7 +17,7 @@ root=$(cd "$(dirname "$0")/../.." && pwd)
 cd "$root"
 out="$root/build/ctan"
 stage="$out/stage"
-rm -rf "$stage" "$out/folarrow.zip"
+rm -rf "$stage" "$out/folarrow.zip" "$out/folarrow.tds.zip"
 mkdir -p "$stage/folarrow" "$stage/tds"
 pkg="$stage/folarrow"
 tds="$stage/tds"
@@ -118,8 +120,9 @@ find folarrow tds -type f -exec chmod 644 {} +
 find folarrow tds -type f \( -name '*.sh' -o -name '*.py' \) -exec chmod 755 {} +
 
 # 7. まとめる
-(cd tds && zip -q -r -X ../folarrow/folarrow.tds.zip tex fonts doc source)
-chmod 644 folarrow/folarrow.tds.zip
+(cd tds && zip -q -r -X "$out/folarrow.tds.zip" tex fonts doc source)
 zip -q -r -X "$out/folarrow.zip" folarrow
+unzip -Z1 "$out/folarrow.zip" | grep -q '\.tds\.zip$' && fail "folarrow.zip contains a .tds.zip"
 cd "$root"
-echo "$out/folarrow.zip: $(unzip -l "$out/folarrow.zip" | tail -1 | awk '{print $2}') files"
+echo "$out/folarrow.zip: $(unzip -l "$out/folarrow.zip" | tail -1 | awk '{print $2}') files (for CTAN)"
+echo "$out/folarrow.tds.zip: $(unzip -l "$out/folarrow.tds.zip" | tail -1 | awk '{print $2}') files (for tests only)"

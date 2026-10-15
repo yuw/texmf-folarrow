@@ -28,7 +28,7 @@ import pathops
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 # 読み書きするTDSの根．既定はこのリポジトリ（tools/fontbuild/の2つ上）．
-# 環境変数FOLARROW_ROOTで別のTDSの木（folarrow.tds.zipを展開したものなど）を指せる．
+# 環境変数FOLARROW_ROOTで別のTDSの木（パッケージのファイルをTDSの形に並べたもの）を指せる．
 ROOT = os.path.abspath(os.environ.get('FOLARROW_ROOT') or os.path.join(HERE, '..', '..'))
 OUT_PFB = os.path.join(ROOT, 'fonts', 'type1', 'public', 'folarrow')
 OUT_TFM = os.path.join(ROOT, 'fonts', 'tfm', 'public', 'folarrow')
@@ -39,7 +39,7 @@ FONTDEF = os.path.join(ROOT, 'tex', 'latex', 'folarrow', 'folarrow-fonts.def')
 # 配布物の外に書き出さないため）．mkfolotf.pyもこのファイルを読み込むので同じ確認を通る．
 if not os.path.isfile(FONTDEF):
     sys.exit('%s: %s not found.\nSet FOLARROW_ROOT to a TDS tree of folarrow '
-             '(for example, folarrow.tds.zip unpacked).' % (os.path.basename(sys.argv[0]), FONTDEF))
+             '(the files of the package arranged in the TDS layout, as in the README).' % (os.path.basename(sys.argv[0]), FONTDEF))
 
 # 斜線の形（folarrow.styの既定値と同じ）
 SPAN, LEAN, GAP = 1.0, 0.25, 0.35
