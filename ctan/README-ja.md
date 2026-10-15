@@ -1,14 +1,13 @@
 # folarrow（日本語のREADME）
 
-英語のREADMEは`README.md`である．
+英語版は`README.md`を参照のこと．
 
 版20261010.0，2026年10月10日．
 作者：Yuwsuke Kieda
 
-これはLaTeXパッケージのひとつで，葉層構造論における葉層束の射影を表す軸に3本の斜線が入った矢印を，amscd，xy-pic，tikz-cdの図式と本文の数式で使うためのものである．
+葉層束の射影を表す軸に3本の斜線が入った矢印を，amscd，xy-pic，tikz-cdの図式や本文の数式で使うためのLaTeXパッケージである．
 
-ファイバー束`V → E → M`で射影`E → M`を縦向き（あるいは横向き）の矢印で描くとき，その軸に3本線を入れて特に葉層束であることを表すことがある．
-これを実現する．
+ファイバー束`V → E → M`の射影`E → M`を表す矢印に3本線を加え，葉層束であることを示すものである．
 
 ## 使い方
 
@@ -21,23 +20,21 @@
 
 | 環境 | 書き方 |
 |---|---|
-| amscd | `@FVV{\pi}V`，`@FAAA`，`@F>f>>`，`@F<<g<`（通常の指定の`@`の直後に`F`） |
-| xy-pic | `\ar[d]\|@{fol}^{\folpad{\pi}}`（`fol`は矢印の途中に置く大きさ0の物体．`\folpad`はラベルが斜線にかからないよう余白を付ける） |
+| amscd | `@FVV{\pi}V`，`@FAAA`，`@F>f>>`，`@F<<g<`（通常の`@`の直後に`F`を付ける） |
+| xy-pic | `\ar[d]\|@{fol}^{\folpad{\pi}}`（`fol`は矢印上の大きさ0の物体であり，`\folpad`はラベルと斜線の間に余白を付ける） |
 | tikz-cd | `\arrow[d, foliated, "\pi"]` |
 | 本文の数式 | `\folrightarrow`，`\folleftarrow`，`\foldownarrow`，`\foluparrow`，`\xfolrightarrow[下]{上}`，`\xfolleftarrow[下]{上}` |
 
-図式の矢印は各パッケージの通常の矢印をそのまま使い，軸の中ほどに斜線を重ねる（pict2e，tikz-cdではPGFで描く）．
-斜線の長さ・間隔・太さは，その場の数式フォントの矢頭と軸に合わせて決まる．
+図式用の矢印は各パッケージのものを使い，軸に斜線を重ねる方式である（pict2e，tikz-cdではPGFで描画する）．斜線の長さ・間隔・太さは，使用中の数式フォントに合わせて決まる．
 
 本文用の4つの矢印（`\folrightarrow`など）は，3本線まで含めて1文字にした字形で組む．
 
 - Type 1フォント：Computer Modern，Latin Modern，newtx，txfonts，newpx，pxfonts
 - OpenTypeフォント：unicode-math（LuaLaTeX，XeLaTeX）で使うOpenTypeの数式フォント49書体
 
-これらの字形は，PDFからテキストとして取り出すと→←↓↑（U+2192，U+2190，U+2193，U+2191）になる．
-ほかの数式フォントでは3本線を描いて組む．
+これらの字形はPDFから抽出すると→←↓↑（U+2192，U+2190，U+2193，U+2191）となる．その他の数式フォントでは3本線を描画する方式である．
 
-数式をボールド（`\boldmath`，`\bm`）にしたときも追従する．本文用の矢印は太字の記号フォントから作ったフォントで組み，描く3本線も太字の矢印に合わせる．unicode-mathでは，太字の数式フォントを`\setmathfont{…}[version=bold]`で指定する．
+ボールド数式（`\boldmath`，`\bm`）にも対応する．本文用の矢印には太字の記号フォントから作ったフォントを使い，描画する斜線も太字に合わせる．unicode-mathでは`\setmathfont{…}[version=bold]`で太字フォントを指定する仕様である．
 
 斜線の形は`\folarrowsetup{span=, lean=, gap=, shift=, thickness=}`か，同じキーのパッケージオプションで変えられる．
 
@@ -47,24 +44,23 @@
 \usepackage[lite]{folarrow}
 ```
 
-`lite`を付けると，ほかのファイル（Luaのモジュール，実測データ，矢印のフォント）を使わず，すべての矢印を描いて組む．
-矢印のフォントをPDFに埋め込まずに組みたいときなどに使う．付けなければ（既定）これまでどおりである．
+`lite`ではLuaモジュール，実測データ，矢印フォントを使わず，矢印をすべて描画する方式である．PDFに矢印フォントを埋め込みたくない場合などに適する．既定の動作に変更はない．
 
 ## 動作要件
 
 - LaTeX 2022-06-01以降，pict2e，graphics．tikz-cdで使う場合はPGF／TikZ．
-- pdfLaTeX，LuaLaTeX，XeLaTeX，upLaTeX＋dvipdfmxで確認した（TeX Live 2026）．dvipdfmxでは文書クラスに`dvipdfmx`オプションを付ける．
-- 特別なフォントは要らない（矢印のフォントは同梱している）．
+- pdfLaTeX，LuaLaTeX，XeLaTeX，upLaTeX+dvipdfmx（TeX Live 2026）で動作確認済み．dvipdfmxでは文書クラスに`dvipdfmx`オプションを指定する．
+- 特別なフォントは不要である（矢印のフォントは同梱している）．
 - TeX Live 2026のLuaLaTeXでは，xy-pic自体がエラーになる（folarrowとは無関係）．
 
 ## 説明書
 
 - `doc/folarrow-ja.pdf`：完全版の説明書（検証表を含む）．
-- `doc/folarrow-lite-ja.pdf`：簡易版（`lite`オプション）の説明書．例はどれも`\documentclass`から`\end{document}`までの完全な文書で，そのまま組める．
+- `doc/folarrow-lite-ja.pdf`：`lite`オプションの説明書．各例はそのまま組める完全な文書．
 
 ## インストール
 
-`folarrow.tds.zip`をTEXMFツリーに展開するか，次のように置く．
+`folarrow.tds.zip`をTEXMFツリーに展開するか，次の場所に配置する．
 
 | ファイル | 置き場所 |
 |---|---|
@@ -75,40 +71,35 @@
 | `fonts/map/folarrow.map` | `fonts/map/dvips/folarrow/` |
 | `source/*` | `source/latex/folarrow/` |
 
-pdfLaTeX，LuaLaTeX，dvipdfmx，xdvipdfmxでは，`folarrow.map`をパッケージが読み込む．
-dvipsで使うときは，`updmap`で登録する（TeX Liveでは`updmap-user --enable Map=folarrow.map`）．
+pdfLaTeX，LuaLaTeX，dvipdfmx，xdvipdfmxでは`folarrow.map`を自動で読み込む．dvipsでは`updmap`による登録が必要である（TeX Live：`updmap-user --enable Map=folarrow.map`）．
 
 ## ファイル
 
-- `tex/`：`folarrow.sty`（パッケージ本体），`folarrow.lua`（LuaTeXのモジュール），`folarrow-fonts.def`（Type 1の数式フォントの実測データ），`folarrow-glyphs.def`，`folarrow-otf.def`（矢印のフォントの表）．
-- `fonts/`：矢印のフォント（Type 1，TFM，OpenType）とマップファイル．
-- `doc/`：説明書（PDFとソース）と例．
-- `source/`：矢印のフォントを作るPythonのスクリプト（次の節を参照）．
-- `LICENSE`：このパッケージのMITライセンス．
-- `licenses/`：矢印のフォントのライセンスの本文と，フォントごとの元のフォント・元の著作権表示・ライセンスの一覧`FONTS.md`．
-- `folarrow.tds.zip`：同じファイルをTDSの形に並べたもの．
+- `tex/`：`folarrow.sty`（本体），`folarrow.lua`（LuaTeXモジュール），`folarrow-fonts.def`（Type 1数式フォントの実測データ），`folarrow-glyphs.def`，`folarrow-otf.def`（矢印フォントの表）．
+- `fonts/`：矢印フォント（Type 1，TFM，OpenType）とマップファイルである．
+- `doc/`：説明書（PDFとソース）および例である．
+- `source/`：矢印フォントを生成するPythonスクリプト（次節を参照）である．
+- `LICENSE`：本パッケージのMITライセンスである．
+- `licenses/`：フォントのライセンス本文と，元フォント・著作権表示・ライセンスの一覧`FONTS.md`を収録するディレクトリである．
+- `folarrow.tds.zip`：同じファイルをTDS形式に配置したものである．
 
 ## 矢印のフォントのソース
 
-矢印のフォントは，元の数式フォントから2本のPythonのスクリプトで作る．
+矢印フォントは，元の数式フォントから次のPythonスクリプトで生成するものである．
 
 - `source/mkfolfonts.py`：Type 1のフォント，そのTFM，`folarrow.map`，`folarrow-glyphs.def`を作る．
 - `source/mkfolotf.py`：OpenTypeのフォントと`folarrow-otf.def`を作る．
 
-どちらも，TeX Liveに入っている元のフォントから矢印の字形（アウトライン）を取り出し，3本線を加える．
-Python 3のfontToolsとskia-pathops，TeX Liveのkpsewhich，tftopl，vftovp，pltotf，t1asmを使う．
-書き出す先は環境変数`FOLARROW_ROOT`で指すTDSの木で，そこには`tex/latex/folarrow/folarrow-fonts.def`が要る（なければ何も書かずに止まる）．
-たとえば`folarrow.tds.zip`をあるディレクトリに展開して，次のように動かす．
+スクリプトはTeX Liveの元フォントから矢印のアウトラインを取り出し，3本線を加えるものである．Python 3のfontTools，skia-pathopsと，TeX Liveのkpsewhich，tftopl，vftovp，pltotf，t1asmが必要である．出力先は環境変数`FOLARROW_ROOT`で指定するTDSツリーであり，`tex/latex/folarrow/folarrow-fonts.def`がなければ停止する．`folarrow.tds.zip`を展開し，次のように実行する．
 
 ```sh
 FOLARROW_ROOT=/path/to/the/tree python3 source/mkfolfonts.py
 FOLARROW_ROOT=/path/to/the/tree python3 source/mkfolotf.py
 ```
 
-`mkfolotf.py`は`mkfolfonts.py`を読み込むので，2本は同じディレクトリに置く．
-パッケージを使うだけなら，動かす必要はない．
+`mkfolotf.py`は`mkfolfonts.py`を読み込むため，同じディレクトリに置く必要がある．通常の利用では実行不要である．
 
 ## ライセンス
 
 - `folarrow.sty`，`folarrow.lua`，`.def`ファイル，説明書，`source/`のスクリプト：MITライセンス（`LICENSE`）．
-- 矢印のフォント（`fonts/`）は元のフォントから作ったもので，元のフォントのライセンス（SIL Open Font License 1.1，GUST Font License，フォントの例外付きのGNU GPL）を引き継ぐ．`licenses/FONTS.md`を参照．ファイル名とフォント名には，元のフォントの予約フォント名を含めていない．
+- 矢印フォント（`fonts/`）は元フォントのライセンス（SIL Open Font License 1.1，GUST Font License，フォント例外付きGNU GPL）を引き継ぐ．詳細は`licenses/FONTS.md`を参照．派生フォント名に元フォントの予約フォント名は含まない．

@@ -1,8 +1,7 @@
 # folarrow
 
-A LaTeX package that provides arrows with three slanted strokes on the shaft, which
-denote the projection of a foliated bundle in foliation theory, for amscd, xy-pic and
-tikz-cd diagrams and for inline math.
+A LaTeX package providing arrows with three slanted shaft strokes to denote foliated-bundle
+projections, for amscd, xy-pic, tikz-cd and inline math.
 
 Version 20261010.0, 2026-10-10.
 Author: Yuwsuke Kieda
@@ -11,10 +10,9 @@ A Japanese README is in `README-ja.md`.
 
 ## Description
 
-When a fiber bundle `V -> E -> M` is drawn as a diagram, the projection `E -> M` is
-drawn as a vertical (or horizontal) arrow. Three slanted strokes are sometimes drawn
-across the shaft of that arrow to indicate, in particular, that the bundle is a foliated
-bundle. This package makes such arrows available:
+In a fiber-bundle diagram `V -> E -> M`, the projection `E -> M` is usually a vertical or
+horizontal arrow. Three slanted strokes across its shaft can indicate a foliated bundle.
+This package provides such arrows:
 
 | Environment | Syntax |
 |---|---|
@@ -23,22 +21,21 @@ bundle. This package makes such arrows available:
 | tikz-cd | `\arrow[d, foliated, "\pi"]` |
 | inline math | `\folrightarrow`, `\folleftarrow`, `\foldownarrow`, `\foluparrow`, `\xfolrightarrow[below]{above}`, `\xfolleftarrow[below]{above}` |
 
-The arrows of the diagram packages are used as they are, and the strokes are drawn over
-them (with pict2e, or PGF for tikz-cd). The length, spacing and thickness of the strokes
-follow the arrowhead and the shaft of the current math font, in every math style.
+Diagram-package arrows are unchanged; strokes are overlaid using pict2e (or PGF for
+tikz-cd). Their length, spacing and thickness follow the current math font's arrowhead
+and shaft in every math style.
 
-The four inline arrows (`\folrightarrow` etc.) are typeset with single glyphs that
-include the strokes:
+The four inline arrows (`\folrightarrow` etc.) use single glyphs with the strokes:
 
 - Type 1 fonts for Computer Modern, Latin Modern, newtx, txfonts, newpx and pxfonts;
 - OpenType fonts for 49 OpenType math fonts used with unicode-math (LuaLaTeX, XeLaTeX).
 
-These glyphs copy from the PDF as U+2192, U+2190, U+2193 and U+2191.
-For other math fonts the strokes are drawn.
+These glyphs copy from PDFs as U+2192, U+2190, U+2193 and U+2191. Other math fonts use
+drawn strokes.
 
-The arrows follow bold math (`\boldmath`, `\bm`): the inline arrows use fonts made from
-the bold symbol fonts, and the drawn strokes follow the bold arrows. With unicode-math,
-specify the bold math font with `\setmathfont{...}[version=bold]`.
+Arrows follow bold math (`\boldmath`, `\bm`): inline arrows use fonts made from the bold
+symbol fonts, and drawn strokes follow bold arrows. With unicode-math, set the bold math
+font using `\setmathfont{...}[version=bold]`.
 
 The shape of the strokes can be changed with `\folarrowsetup{span=, lean=, gap=, shift=, thickness=}`
 or the same package options.
@@ -49,15 +46,14 @@ or the same package options.
 \usepackage[lite]{folarrow}
 ```
 
-With `lite`, the package uses no other files (no Lua module, measured data or arrow
-fonts) and draws all arrows. Use it, for example, when you do not want the arrow fonts
-embedded in the PDF. The default behaviour without `lite` does not change.
+With `lite`, all arrows are drawn and no Lua module, measured data or arrow fonts are
+needed. Use it to avoid embedding arrow fonts in PDFs. Default behaviour is unchanged.
 
 ## Requirements
 
 - LaTeX 2022-06-01 or later, pict2e, graphics; PGF/TikZ for tikz-cd.
 - Tested with pdfLaTeX, LuaLaTeX, XeLaTeX and upLaTeX+dvipdfmx (TeX Live 2026).
-  With dvipdfmx, give the `dvipdfmx` option to the document class.
+  For dvipdfmx, pass the `dvipdfmx` option to the document class.
 - No special fonts are required; the arrow fonts are included.
 - In TeX Live 2026, xy-pic itself fails with LuaLaTeX (unrelated to this package).
 
@@ -66,12 +62,12 @@ embedded in the PDF. The default behaviour without `lite` does not change.
 All documentation is in Japanese.
 
 - `doc/folarrow-ja.pdf`: the full manual, with verification tables.
-- `doc/folarrow-lite-ja.pdf`: the manual of the `lite` option. Every example is a complete
-  document from `\documentclass` to `\end{document}` that compiles as it is.
+- `doc/folarrow-lite-ja.pdf`: `lite` manual; each example is a compilable, complete
+  document.
 
 ## Installation
 
-Unpack `folarrow.tds.zip` into a TEXMF tree, or put the files as follows:
+Unpack `folarrow.tds.zip` into a TEXMF tree, or install the files as follows:
 
 | Files | Location |
 |---|---|
@@ -92,7 +88,7 @@ For dvips, enable it with `updmap` (in TeX Live: `updmap-user --enable Map=folar
   `folarrow-glyphs.def`, `folarrow-otf.def` (tables of the arrow fonts).
 - `fonts/`: the arrow fonts (Type 1, TFM, OpenType) and the map file.
 - `doc/`: the manuals (PDF and source) and the examples.
-- `source/`: the Python scripts that generate the arrow fonts (see below).
+- `source/`: Python scripts for generating arrow fonts (see below).
 - `LICENSE`: the MIT License of the package.
 - `licenses/`: license texts of the arrow fonts, and `FONTS.md`, the list of the arrow
   fonts with their original fonts, original copyright notices and licenses.
@@ -106,27 +102,24 @@ The arrow fonts are generated from the original math fonts by two Python scripts
   `folarrow-glyphs.def`;
 - `source/mkfolotf.py`: the OpenType fonts and `folarrow-otf.def`.
 
-The scripts take the outlines of the arrows from the original fonts installed in TeX Live
-and add the three strokes. They need Python 3 with fontTools and skia-pathops, and
-kpsewhich, tftopl, vftovp, pltotf and t1asm from TeX Live. They write into the TDS tree
-given by the environment variable `FOLARROW_ROOT`, which must contain
-`tex/latex/folarrow/folarrow-fonts.def` (otherwise they stop without writing anything);
-for example, unpack `folarrow.tds.zip` into a
-directory and run
+The scripts add three strokes to arrow outlines from the original TeX Live fonts. They
+require Python 3 with fontTools and skia-pathops, plus TeX Live's kpsewhich, tftopl,
+vftovp, pltotf and t1asm. Output goes to the TDS tree specified by `FOLARROW_ROOT`,
+which must contain `tex/latex/folarrow/folarrow-fonts.def`; otherwise, the scripts stop
+without writing. For example, unpack `folarrow.tds.zip` into a directory and run
 
 ```sh
 FOLARROW_ROOT=/path/to/the/tree python3 source/mkfolfonts.py
 FOLARROW_ROOT=/path/to/the/tree python3 source/mkfolotf.py
 ```
 
-`mkfolotf.py` imports `mkfolfonts.py`, so keep the two scripts in the same directory.
-Users of the package do not need to run them.
+`mkfolotf.py` imports `mkfolfonts.py`, so keep both scripts together. Package users need
+not run them.
 
 ## License
 
 - `folarrow.sty`, `folarrow.lua`, the `.def` files, the documentation and the scripts
   in `source/`: MIT License (`LICENSE`).
-- The arrow fonts in `fonts/` are derived from other fonts and keep their licenses:
-  SIL Open Font License 1.1, GUST Font License, or GNU GPL with font exception.
-  See `licenses/FONTS.md`. The names of the derived fonts do not contain the Reserved
-  Font Names of the original fonts.
+- Arrow fonts in `fonts/` retain their source licenses: SIL Open Font License 1.1, GUST
+  Font License, or GNU GPL with font exception. See `licenses/FONTS.md`. Derived font
+  names do not use the originals' Reserved Font Names.
