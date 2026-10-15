@@ -1,6 +1,6 @@
 % folarrow-ja.tex：folarrowパッケージの説明書
 % 組み方：uplatex folarrow-ja && dvipdfmx folarrow-ja
-% （xy-picの例を含むのでupLaTeX＋dvipdfmxで組む．TeX Live 2026のLuaLaTeXでは
+% （xy-picの例を含むのでupLaTeX＋dvipdfmxで組む．TeX Live 2025と2026のLuaLaTeXでは
 %   xy-pic自体がxypdfのエラーになる）
 \documentclass[dvipdfmx,paper=a4]{jlreq}
 \usepackage{amsmath,amscd}
@@ -435,9 +435,9 @@ Computer Modern，Latin Modern，\pkg{newtx}，\pkg{txfonts}，\pkg{newpx}，\pk
 
 \section{動作環境}
 
-pdf\LaTeX，Lua\LaTeX，up\LaTeX＋dvipdfmx，Xe\LaTeX{}で動作を確認した（\TeX{} Live 2026）．
+pdf\LaTeX，Lua\LaTeX，up\LaTeX＋dvipdfmx，Xe\LaTeX{}で動作を確認した（\TeX{} Live 2025と2026）．
 LaTeXの2022-06-01以降が必要である（\verb|\fpeval|と\verb|\DeclareKeys|を使うため）．
-ただしTeX Live 2026のLua\LaTeX{}では\pkg{xy-pic}自体がxypdfのエラーで使えない（\pkg{folarrow}とは無関係）．
+ただしTeX Live 2025と2026のLua\LaTeX{}では\pkg{xy-pic}自体がxypdfのエラーで使えない（\pkg{folarrow}とは無関係）．
 
 \section{使うときの注意}\label{sec:notes}
 

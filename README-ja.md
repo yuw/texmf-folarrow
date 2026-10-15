@@ -125,8 +125,8 @@ python3 tools/fontbuild/mkfolfonts.py
 
 - LaTeX 2022-06-01以降（`\fpeval`，`\DeclareKeys`を使う）
 - pict2e（tikz-cdで使う場合はPGF／TikZ）
-- pdfLaTeX，LuaLaTeX，upLaTeX＋dvipdfmx，XeLaTeXで確認（TeX Live 2026）．dvipdfmxでは文書クラスに`dvipdfmx`オプションを付ける．
-- TeX Live 2026のLuaLaTeXでは，xy-pic自体がxypdfのエラーになる（folarrowとは無関係）．
+- pdfLaTeX，LuaLaTeX，upLaTeX＋dvipdfmx，XeLaTeXで確認（TeX Live 2025と2026）．dvipdfmxでは文書クラスに`dvipdfmx`オプションを付ける．
+- TeX Live 2025と2026のLuaLaTeXでは，xy-pic自体がxypdfのエラーになる（folarrowとは無関係）．
 
 ## 数式フォントへの対応
 

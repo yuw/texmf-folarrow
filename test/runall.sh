@@ -18,7 +18,7 @@ for t in t1-all t3-labels t4-caps t5-glyphs; do
   xelatex -interaction=nonstopmode -jobname="$t-xe" "$t.tex" >/dev/null 2>&1
   logs="$logs $t-pdf.log $t-lua.log $t-up.log $t-xe.log"
 done
-# （t1-allは，LuaLaTeXのときxy-picを読まない．TeX Live 2026ではxy-pic自体がLuaLaTeXでエラーになるため）
+# （t1-allは，LuaLaTeXのときxy-picを読まない．TeX Live 2025と2026ではxy-pic自体がLuaLaTeXでエラーになるため）
 
 # 2. OpenTypeの数式フォント（LuaLaTeX，XeLaTeX）
 if [ -z "$SKIP_T6" ]; then

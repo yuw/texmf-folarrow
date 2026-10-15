@@ -52,10 +52,10 @@ needed. Use it to avoid embedding arrow fonts in PDFs. Default behaviour is unch
 ## Requirements
 
 - LaTeX 2022-06-01 or later, pict2e, graphics; PGF/TikZ for tikz-cd.
-- Tested with pdfLaTeX, LuaLaTeX, XeLaTeX and upLaTeX+dvipdfmx (TeX Live 2026).
+- Tested with pdfLaTeX, LuaLaTeX, XeLaTeX and upLaTeX+dvipdfmx (TeX Live 2025 and 2026).
   For dvipdfmx, pass the `dvipdfmx` option to the document class.
 - No special fonts are required; the arrow fonts are included.
-- In TeX Live 2026, xy-pic itself fails with LuaLaTeX (unrelated to this package).
+- In TeX Live 2025 and 2026, xy-pic itself fails with LuaLaTeX (unrelated to this package).
 
 ## Documentation
 

@@ -49,9 +49,9 @@
 ## 動作要件
 
 - LaTeX 2022-06-01以降，pict2e，graphics．tikz-cdで使う場合はPGF／TikZ．
-- pdfLaTeX，LuaLaTeX，XeLaTeX，upLaTeX+dvipdfmx（TeX Live 2026）で動作確認済み．dvipdfmxでは文書クラスに`dvipdfmx`オプションを指定する．
+- pdfLaTeX，LuaLaTeX，XeLaTeX，upLaTeX+dvipdfmx（TeX Live 2025と2026）で動作確認済み．dvipdfmxでは文書クラスに`dvipdfmx`オプションを指定する．
 - 特別なフォントは不要である（矢印のフォントは同梱している）．
-- TeX Live 2026のLuaLaTeXでは，xy-pic自体がエラーになる（folarrowとは無関係）．
+- TeX Live 2025と2026のLuaLaTeXでは，xy-pic自体がエラーになる（folarrowとは無関係）．
 
 ## 説明書
 
