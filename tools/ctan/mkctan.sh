@@ -43,6 +43,9 @@ scr=$(grep -n -E 'tools/|\.sh|measure\.py|mkdata\.py|mkreport\.py|mkfontlicenses
 for d in doc/latex/folarrow/folarrow-ja.tex doc/latex/folarrow/folarrow-lite-ja.tex; do
   grep -q "\\\\date{$jdate　v$ver}" "$d" || fail "$d: \\date is not '$jdate　v$ver'"
 done
+for d in doc/latex/folarrow/folarrow-en.tex doc/latex/folarrow/folarrow-lite-en.tex; do
+  grep -q "\\\\date{$isodate\\\\quad v$ver}" "$d" || fail "$d: \\date is not '$isodate\\quad v$ver'"
+done
 echo "version $ver, $isodate"
 
 # 2. 配る対象のファイル（gitに登録したもの）
@@ -105,7 +108,7 @@ crlf=$(find folarrow -type f \( -name '*.tex' -o -name '*.sty' -o -name '*.lua' 
 scripts=$(find folarrow tds -type f \( -name '*.py' -o -name '*.sh' \) \
   | grep -v -E '^(folarrow/source|tds/source/latex/folarrow)/mkfol(fonts|otf)\.py$' || true)
 [ -z "$scripts" ] || fail "scripts in the package: $scripts"
-for p in folarrow-ja.pdf folarrow-lite-ja.pdf; do
+for p in folarrow-ja.pdf folarrow-lite-ja.pdf folarrow-en.pdf folarrow-lite-en.pdf; do
   [ -f "folarrow/doc/$p" ] || fail "missing doc/$p"
 done
 

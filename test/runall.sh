@@ -39,7 +39,7 @@ done
 doc="$root/doc/latex/folarrow"
 sh "$doc/lite-examples/build.sh" >/dev/null || echo "lite-examples/build.sh failed"
 sh "$doc/full-examples/build.sh" >/dev/null || echo "full-examples/build.sh failed"
-for d in folarrow-ja folarrow-lite-ja; do
+for d in folarrow-ja folarrow-lite-ja folarrow-en folarrow-lite-en; do
   (cd "$doc" && uplatex -interaction=nonstopmode "$d.tex" >/dev/null 2>&1 \
      && uplatex -interaction=nonstopmode "$d.tex" >/dev/null 2>&1 && dvipdfmx -q "$d.dvi" 2>/dev/null)
   logs="$logs $doc/$d.log"

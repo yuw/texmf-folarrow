@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""measure.pyの結果から，説明書に載せる検証表（folarrow-verify.tex）を作る．
+"""measure.pyの結果から，説明書に載せる検証表を作る．日本語の説明書用のfolarrow-verify.texと，
+英語の説明書用のfolarrow-verify-en.tex（同じ表の見出しと備考を英語にしたもの）．
 
 読むもの：results.json（pdfLaTeX／LuaLaTeX），results-uplatex.json，results-xelatex.json
 表の値は，folarrowの計算値と実測値のずれの最大（％）．大きさ（10pt，10.95pt，12pt）と
@@ -11,6 +12,11 @@ import json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
     HERE, '..', '..', 'doc', 'latex', 'folarrow', 'folarrow-verify.tex')
+OUT_EN = re.sub(r'\.tex$', '-en.tex', OUT)
+# 英語版の備考と端の欄
+NOTE_EN = {'': '', '未インストール': 'not installed', 'エラー': 'error', 'PKフォント': 'PK font',
+           '添字用字形': 'script glyphs'}
+CAP_EN = {'--': '--', '○': 'ok', r'\textbf{×}': r'\textbf{no}'}
 
 ENG = {'pdflatex': 'pdf', 'lualatex': 'Lua', 'uplatex': 'up', 'xelatex': 'Xe'}
 # 実測に使ったフォントがMETAFONTのビットマップ（PK）で，ドットの段差（600dpiで0.12pt）が
@@ -89,5 +95,14 @@ with open(OUT, 'w') as f:
     for row in out:
         f.write('\\texttt{%s} & %s & %s & %s & %s & %s & %s & %s & %s\\\\\n' % ((esc(row[0]),) + row[1:]))
     f.write('\\end{longtable}\n')
+with open(OUT_EN, 'w') as f:
+    f.write('% folarrow-verify-en.tex: verification table made from the results of typesetting and measuring the arrows (generated; do not edit)\n')
+    f.write('\\begin{longtable}{@{}lcrrrrrcl@{}}\n')
+    f.write('Font (setting) & Engine & \\multicolumn{2}{c}{Horizontal} & \\multicolumn{2}{c}{Vertical} & Center & Ends & Note\\\\\n')
+    f.write(' & & width & thick. & width & thick. & pt & & \\\\\\hline\\endhead\n')
+    for row in out:
+        f.write('\\texttt{%s} & %s & %s & %s & %s & %s & %s & %s & %s\\\\\n'
+                % ((esc(row[0]),) + row[1:7] + (CAP_EN[row[7]], NOTE_EN[row[8]])))
+    f.write('\\end{longtable}\n')
 ok = sum(1 for x in out if not x[8] and '\\textbf' not in ''.join(x[2:8]))
-print(f'{len(out)} rows, {ok} within 3% -> {OUT}')
+print(f'{len(out)} rows, {ok} within 3% -> {OUT}, {OUT_EN}')

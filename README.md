@@ -70,11 +70,11 @@ embedded in the PDF. The default behaviour without `lite` does not change.
 
 ## Documentation
 
-All documentation is in Japanese.
+The manuals are in English and Japanese, with the same contents.
 
-- `doc/latex/folarrow/folarrow-ja.pdf`: the full manual, with verification tables.
-- `doc/latex/folarrow/folarrow-lite-ja.pdf`: the manual of the `lite` option. Every example is a complete
-  document from `\documentclass` to `\end{document}` that compiles as it is.
+- `doc/latex/folarrow/folarrow-en.pdf`, `folarrow-ja.pdf`: the full manual, with verification tables.
+- `doc/latex/folarrow/folarrow-lite-en.pdf`, `folarrow-lite-ja.pdf`: the manual of the `lite` option.
+  Every example is a complete document from `\documentclass` to `\end{document}` that compiles as it is.
 
 ## Installation
 
@@ -118,7 +118,7 @@ change the scripts and run them again.
 | Type 1 arrow fonts, TFM, `folarrow.map`, `folarrow-glyphs.def` | `tools/fontbuild/mkfolfonts.py` |
 | OpenType arrow fonts, `folarrow-otf.def` | `tools/fontbuild/mkfolotf.py` |
 | `folarrow-fonts.def` (measured data) | `tools/fontdata/measure.py`, then `tools/fontdata/mkdata.py` |
-| `doc/latex/folarrow/folarrow-verify.tex` (verification tables) | `tools/fontdata/mkreport.py` |
+| `doc/latex/folarrow/folarrow-verify.tex`, `folarrow-verify-en.tex` (verification tables) | `tools/fontdata/mkreport.py` |
 | `licenses/FONTS.md` | `tools/ctan/mkfontlicenses.py` |
 | results of the examples in the manuals (`*-out.pdf`) | `doc/latex/folarrow/lite-examples/build.sh`, `doc/latex/folarrow/full-examples/build.sh` |
 | the CTAN archive `build/ctan/folarrow.zip` | `tools/ctan/mkctan.sh` |

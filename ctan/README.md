@@ -59,11 +59,11 @@ needed. Use it to avoid embedding arrow fonts in PDFs. Default behaviour is unch
 
 ## Documentation
 
-All documentation is in Japanese.
+The manuals are in English and Japanese, with the same contents.
 
-- `doc/folarrow-ja.pdf`: the full manual, with verification tables.
-- `doc/folarrow-lite-ja.pdf`: `lite` manual; each example is a compilable, complete
-  document.
+- `doc/folarrow-en.pdf`, `doc/folarrow-ja.pdf`: the full manual, with verification tables.
+- `doc/folarrow-lite-en.pdf`, `doc/folarrow-lite-ja.pdf`: `lite` manual; each example is a
+  compilable, complete document.
 
 ## Installation
 

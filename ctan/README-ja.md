@@ -3,7 +3,7 @@
 英語版は`README.md`を参照のこと．
 
 版20261010.0，2026年10月10日．
-作者：Yuwsuke Kieda
+作者：木枝祐介
 
 葉層束の射影を表す軸に3本の斜線が入った矢印を，amscd，xy-pic，tikz-cdの図式や本文の数式で使うためのLaTeXパッケージである．
 
@@ -55,8 +55,10 @@
 
 ## 説明書
 
-- `doc/folarrow-ja.pdf`：完全版の説明書（検証表を含む）．
-- `doc/folarrow-lite-ja.pdf`：`lite`オプションの説明書．各例はそのまま組める完全な文書．
+説明書は英語版と日本語版があり，内容は同じである．
+
+- `doc/folarrow-ja.pdf`，`doc/folarrow-en.pdf`：完全版の説明書（検証表を含む）．
+- `doc/folarrow-lite-ja.pdf`，`doc/folarrow-lite-en.pdf`：`lite`オプションの説明書．各例はそのまま組める完全な文書．
 
 ## インストール
 

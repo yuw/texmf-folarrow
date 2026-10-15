@@ -1,0 +1,263 @@
+% folarrow-lite-en.tex: the manual of the light version (lite option) of the folarrow package (English)
+% Compile: uplatex folarrow-lite-en && uplatex folarrow-lite-en && dvipdfmx folarrow-lite-en
+% (upLaTeX, because the source of the Japanese example contains Japanese text)
+% The outputs of the examples (lite-examples/ex*-out.pdf) were made by compiling the sources of the examples.
+\documentclass[dvipdfmx,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage[margin=25mm]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyvrb}
+\usepackage{url}
+\title{The folarrow package, light version\\\large Manual of the \texttt{lite} option}
+\author{Yuwsuke Kieda}
+\date{2026-10-10\quad v20261010.0}
+\newcommand\pkg[1]{\textsf{#1}}
+\newcommand\file[1]{\texttt{#1}}
+\fvset{frame=single,framesep=3mm,fontsize=\small}
+\setlength\emergencystretch{3em}
+% An example: the source (the file as it is) and the result
+% (the command, source and result are kept in one box, not broken across pages or separated from the heading)
+\newcommand\example[2]{%
+  \par\noindent\begin{minipage}{\linewidth}
+  Compile: \texttt{#2}\par
+  \VerbatimInput{lite-examples/#1.tex}%
+  \par\noindent Result:\par
+  \begin{center}\fbox{\includegraphics{lite-examples/#1-out.pdf}}\end{center}
+  \end{minipage}\par\medskip}
+\begin{document}
+\maketitle
+
+\noindent A Japanese version of this manual is \file{folarrow-lite-ja.pdf}.
+
+\section{Overview}
+
+\pkg{folarrow} is a package that makes arrows with three slanted strokes on the shaft, which
+denote the projection of a foliated bundle, available in \pkg{amscd}, \pkg{xy-pic} and
+\pkg{tikz-cd} diagrams and in inline math. This manual describes its light version (the
+\texttt{lite} option).
+\begin{Verbatim}
+\usepackage[lite]{folarrow}
+\end{Verbatim}
+The light version uses no file other than \file{folarrow.sty} (no Lua module, measured data or
+arrow fonts) and draws every arrow as the usual arrow of each package with three slanted strokes
+drawn over it. Use it, for example, when you do not want the arrow fonts embedded in the PDF.
+
+\section{Preparation}
+
+\begin{itemize}
+\item Install the \pkg{folarrow} package (if your \TeX{} distribution includes it, it can be used
+  as it is).
+\item \LaTeX{} 2022-06-01 or later is required. The package loads \pkg{pict2e} and \pkg{graphics}
+  (both are in \TeX{} Live). For diagrams, load the ones of \pkg{amscd}, \pkg{xy-pic} and
+  \pkg{tikz-cd} that you use.
+\item It works with pdf\LaTeX, Lua\LaTeX, Xe\LaTeX{} and up\LaTeX{}+dvipdfmx. With up\LaTeX, give
+  the \texttt{dvipdfmx} option to the document class.
+\end{itemize}
+
+\section{Loading}
+
+\begin{Verbatim}
+\usepackage{amscd}        % only the ones you use
+\usepackage[all]{xy}
+\usepackage{tikz-cd}
+\usepackage[lite]{folarrow}
+\end{Verbatim}
+\pkg{amscd}, \pkg{xy-pic} and \pkg{tikz-cd} may be loaded before or after \pkg{folarrow}.
+\texttt{lite} can only be given when loading the package (it cannot be changed later with
+\verb|\folarrowsetup|). The shape keys of the strokes (section~\ref{sec:shape}) may be given
+together with \texttt{lite}.
+\begin{Verbatim}
+\usepackage[lite, gap=0.45]{folarrow}
+\end{Verbatim}
+
+\section{Commands}
+
+\subsection{amscd}
+Add \verb|F| right after the \verb|@| of the usual arrows \verb|@>>>|, \verb|@<<<|, \verb|@VVV|
+and \verb|@AAA| to get the strokes. Labels are given in the same way as for the usual arrows.
+\begin{center}
+\begin{tabular}{ll}
+\verb|@F>>>|, \verb|@F<<<| & horizontal (right, left)\\
+\verb|@FVVV|, \verb|@FAAA| & vertical (down, up)
+\end{tabular}
+\end{center}
+
+\subsection{xy-pic}
+Place the object \verb|fol| on an arrow with \verb/|/, as in \verb/\ar[d]|@{fol}/. The arrow is
+not broken, and it also works on diagonal arrows. Enclose a label of the arrow in \verb|\folpad|
+to give it a margin that clears the strokes.
+\begin{Verbatim}
+\ar[d]|@{fol}^{\folpad{\pi}}
+\end{Verbatim}
+
+\subsection{tikz-cd}
+Add \verb|foliated| to the options of the arrow. Labels clear the strokes automatically.
+\begin{Verbatim}
+\arrow[d, foliated, "\pi"]
+\end{Verbatim}
+
+\subsection{Inline math}
+\begin{center}
+\begin{tabular}{ll}
+\verb|\folrightarrow| & right arrow (\verb|\longrightarrow| with the strokes)\\
+\verb|\folleftarrow| & left arrow (\verb|\longleftarrow| with the strokes)\\
+\verb|\foldownarrow|, \verb|\foluparrow| & down arrow, up arrow\\
+\verb|\xfolrightarrow[below]{above}| & right arrow that stretches with the labels\\
+\verb|\xfolleftarrow[below]{above}| & left arrow that stretches with the labels
+\end{tabular}
+\end{center}
+All of them are relations (\verb|\mathrel|) and can be used in subscripts. The stretchable arrows
+are used like \verb|\xrightarrow| of \pkg{amsmath} and are never shorter than
+\verb|\longrightarrow|.
+
+\section{Adjusting the strokes}\label{sec:shape}
+
+Use package options or \verb|\folarrowsetup|. \verb|\folarrowsetup| inside a group affects only
+that group.
+\begin{center}\small
+\begin{tabular}{lll}
+Key & Default & Meaning\\\hline
+\verb|span| & 1.0 & length of the strokes (ratio to the arrowhead width; $>0$, $\le 10$)\\
+\verb|lean| & 0.25 & slant (offset along the arrow relative to the length; $-5$ to 5)\\
+\verb|gap| & 0.35 & spacing of the strokes (ratio to the arrowhead width; 0 to 10)\\
+\verb|shift| & 0 & shift from the middle toward the tail (ratio to the arrowhead width; $-10$ to 10)\\
+\verb|thickness| & (empty) & line thickness; if empty, the shaft thickness (estimated)
+\end{tabular}
+\end{center}
+
+\section{Examples}
+
+Each example can be compiled by copying it, from \verb|\documentclass| to \verb|\end{document}|,
+into a file. The results were actually typeset (with the margins cropped). To make sure that no
+other files are used, they were compiled with no file of \pkg{folarrow} other than
+\file{folarrow.sty} available.
+
+\subsection{amscd}
+\example{ex01-amscd}{pdflatex ex01-amscd}
+
+\subsection{xy-pic}
+\example{ex02-xypic}{pdflatex ex02-xypic}
+In \TeX{} Live 2025 and 2026, \pkg{xy-pic} itself fails with Lua\LaTeX{} (unrelated to
+\pkg{folarrow}). Use \pkg{xy-pic} with pdf\LaTeX{} or up\LaTeX.
+
+\subsection{tikz-cd}
+\example{ex03-tikzcd}{pdflatex ex03-tikzcd}
+
+\subsection{Inline math}
+\example{ex04-inline}{pdflatex ex04-inline}
+
+\subsection{Adjusting the strokes}
+\example{ex05-setup-en}{pdflatex ex05-setup-en}
+\verb|\folarrowsetup{gap=0.45}| in the preamble affects the whole document. \verb|\folarrowsetup|
+used inside a group (\verb|{| and \verb|}|) affects only that group, and the setting of the whole
+document is restored after the group. The diagrams are, from left to right: the setting of the
+whole document (\verb|gap=0.45|); in addition \verb|span=1.5, lean=0.5|;
+\verb|thickness=0.8pt| (\pkg{tikz-cd}); back to the setting of the whole document. The inline
+arrows are, from left to right: the setting of the whole document; in addition \verb|shift=0.5|
+(the strokes are moved toward the tail of the arrow); back to the setting of the whole document.
+
+\subsection{Times (newtx)}
+\example{ex06-times}{pdflatex ex06-times}
+
+\subsection{Palatino (newpx)}
+\example{ex07-palatino}{pdflatex ex07-palatino}
+
+\subsection{A Japanese document (up\LaTeX{}+dvipdfmx)}
+\example{ex08-uplatex}{uplatex ex08-uplatex \&\& dvipdfmx ex08-uplatex}
+
+\subsection{Lua\LaTeX{} and unicode-math}
+\example{ex09-lualatex}{lualatex ex09-lualatex}
+
+\subsection{Xe\LaTeX{} and unicode-math}
+\example{ex10-xelatex}{xelatex ex10-xelatex}
+
+\section{Properties and limitations of the light version}
+
+\begin{itemize}
+\item The width of the arrowhead and the line thickness (the reference for the size of the
+  strokes) are read from the glyph bounding box with Xe\LaTeX{} and an OpenType math font (using
+  \verb|\XeTeXglyphbounds|), and estimated from the font dimensions otherwise.
+\item The strokes are placed at the center of the arrow's box. This may differ from the center of
+  the arrow's ink (the part actually painted): for the inline arrows of 10\,pt Computer Modern,
+  \pkg{newtxmath}, \pkg{newpxmath} and \pkg{txfonts}, the offset was up to 0.3\,pt along the arrow
+  and 0.03\,pt across it. With some fonts it is larger.
+\item The ends of the strokes are always butt.
+\item In bold, with \verb|\boldmath| etc., the length and thickness of the strokes are also
+  estimated from the font dimensions, so the strokes may be somewhat thin for the bold arrows.
+\item The result is an arrow with three strokes drawn over it, so copying it from the PDF gives
+  the original arrow character (for \verb|\foldownarrow|, the pieces of the delimiter).
+\item With Lua\LaTeX, the extensible $\uparrow$ of Luciole Math gives the error
+  ``\texttt{Extensible recipe has no fixed parts}'' (a problem of the font; it happens without
+  \pkg{folarrow} too). In the light version, \verb|\foluparrow| and \verb|@FAAA| of \pkg{amscd}
+  give this error.
+\item In Pennstander Math, the large delimiters $\downarrow$ and $\uparrow$ are broken (a problem
+  of the font). In the light version this shows as it is in \verb|\foldownarrow|,
+  \verb|\foluparrow| and the vertical arrows of \pkg{amscd}.
+\item With Xe\LaTeX, OpenType fonts included in \TeX{} Live may not be found by their names.
+  Specify them by file name, as follows.
+\begin{Verbatim}
+\setmathfont{latinmodern-math.otf}
+\end{Verbatim}
+\end{itemize}
+
+\section{Notes}
+
+\begin{itemize}
+\item A key value that is not a number or is out of range (see the table of
+  section~\ref{sec:shape}) gives an error showing the name and value of the key, and the previous
+  value is kept.
+\item The commands can be used in the arguments of \verb|\section|, \verb|\caption|, etc. In
+  \pkg{hyperref} bookmarks, the arrows become the characters
+  $\rightarrow\leftarrow\downarrow\uparrow$.
+\item \pkg{amscd}, \pkg{xy-pic}, \pkg{tikz-cd} and \pkg{unicode-math} may be loaded before or
+  after \pkg{folarrow}.
+\item In vertical writing with p\TeX/up\TeX{} and dvipdfmx, too, the strokes are rotated for
+  vertical writing. To typeset diagrams in vertical writing, put them in a horizontal box such as
+  \verb|\hbox{\yoko ...}|.
+\item With babel's spanish, \pkg{amscd} itself cannot be used (this happens without
+  \pkg{folarrow} too). Use the \verb|es-noquoting| option or \verb|\deactivatequoting|.
+\item For colored arrows of \pkg{xy-pic}, give the color to the strokes too:
+  \verb/\ar@[red][r]|*[red]\dir{fol}/.
+\item At large sizes, load \pkg{amsmath} or exscale (so that the vertical arrows do not stay
+  small).
+\end{itemize}
+
+\section{Differences from the full version}
+
+The full version, without \texttt{lite}, uses the following files besides \file{folarrow.sty}
+for more accurate results.
+\begin{center}
+{\renewcommand\arraystretch{1.3}%
+\begin{tabular}{>{\raggedright\arraybackslash}p{.25\linewidth}%
+  >{\raggedright\arraybackslash}p{.38\linewidth}>{\raggedright\arraybackslash}p{.27\linewidth}}
+ & Full version & Light version (\texttt{lite})\\\hline
+Files needed & \file{folarrow.sty}, \file{folarrow.lua}, tables of the measured data and the
+  arrow fonts (\file{.def}), the arrow fonts (Type~1, OTF) and the map file & \file{folarrow.sty} only\\
+Inline arrows & a single glyph of a font with the strokes (major fonts) & the strokes drawn over
+  the arrow\\
+Value as text & $\rightarrow\leftarrow\downarrow\uparrow$ & the original arrow characters\\
+Arrowhead width and line thickness & measured data, glyph shapes (Lua\LaTeX, Xe\LaTeX) &
+  estimated (glyph shapes with Xe\LaTeX)\\
+Offset of the strokes from the center & at most 0.015\,pt (inline arrows) & up to about 0.3\,pt\\
+Ends of the strokes & round or butt, following the tail of the arrow & always butt
+\end{tabular}}
+\end{center}
+The usage of the full version and the results of the verification are in the manual
+\file{folarrow-en.pdf}.
+
+\section{License and author}
+
+\file{folarrow.sty}, \file{folarrow.lua}, the \file{.def} files, the documentation and the tools
+are distributed under the MIT License (\file{LICENSE}). The arrow fonts (\file{fonts/}) were made
+from other fonts and keep the licenses of their original fonts (SIL Open Font License 1.1, GUST
+Font License, GNU GPL with font exception). The original font, original copyright notice and
+license of each font are listed in \file{licenses/FONTS.md}, and the license texts are in
+\file{licenses/}.
+
+Author: Yuwsuke Kieda
+
+\end{document}

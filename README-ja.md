@@ -14,7 +14,7 @@
 斜線の長さと太さは，その場の数式フォントの大きさに合わせて決まる．
 本文用の4つの矢印（`\folrightarrow`，`\folleftarrow`，`\foldownarrow`，`\foluparrow`）は，主な数式フォント（Computer Modern，Latin Modern，newtx，txfonts，newpx，pxfonts）では3本線まで含めて1文字にしたType 1フォントで組み，PDFからテキストとして取り出すと→←↓↑になる．LuaLaTeX，XeLaTeXでunicode-mathを使うときは，OpenTypeの数式フォント49書体に対応するOTFで組む．
 
-詳しくは`doc/latex/folarrow/folarrow-ja.pdf`（説明書）を参照．
+詳しくは`doc/latex/folarrow/folarrow-ja.pdf`（説明書．英語版は`folarrow-en.pdf`）を参照．
 
 ## 使い方
 
@@ -113,7 +113,7 @@ python3 tools/fontbuild/mkfolfonts.py
 | Type 1の矢印のフォント，TFM，`folarrow.map`，`folarrow-glyphs.def` | `tools/fontbuild/mkfolfonts.py` |
 | OpenTypeの矢印のフォント，`folarrow-otf.def` | `tools/fontbuild/mkfolotf.py` |
 | `folarrow-fonts.def`（実測データ） | `tools/fontdata/measure.py`のあと`tools/fontdata/mkdata.py` |
-| `doc/latex/folarrow/folarrow-verify.tex`（検証表） | `tools/fontdata/mkreport.py` |
+| `doc/latex/folarrow/folarrow-verify.tex`，`folarrow-verify-en.tex`（検証表） | `tools/fontdata/mkreport.py` |
 | `licenses/FONTS.md` | `tools/ctan/mkfontlicenses.py` |
 | 説明書の例の結果（`*-out.pdf`） | `doc/latex/folarrow/lite-examples/build.sh`，`doc/latex/folarrow/full-examples/build.sh` |
 | CTANに出すアーカイブ`build/ctan/folarrow.zip` | `tools/ctan/mkctan.sh` |
@@ -153,7 +153,7 @@ xy-picは線の端が丸いので丸い端，tikz-cdは矢印の線の端の設�
 cd tools/fontdata
 python3 measure.py            # 全書体を組んで測る（TeXはPATHに通しておく）
 python3 mkdata.py             # tex/latex/folarrow/folarrow-fonts.defを作る
-python3 mkreport.py           # doc/latex/folarrow/folarrow-verify.texを作る
+python3 mkreport.py           # doc/latex/folarrow/folarrow-verify.tex，folarrow-verify-en.texを作る
 ```
 
 ## 簡易版（`lite`オプション）
@@ -170,7 +170,7 @@ python3 mkreport.py           # doc/latex/folarrow/folarrow-verify.texを作る
 - 実測データを使わないので，3本線は矢印の箱の中央に置き，端はつねに切りっぱなしにする．CM，newtx，newpx，txfontsの本文用の矢印では，中央からのずれは最大0.3ptだった（書体によってはもっと大きい）．
 - PDFからテキストとして取り出すと元の矢印の文字になる．
 - 読み込み時にだけ指定できる．
-- 簡易版だけの説明書`doc/latex/folarrow/folarrow-lite-ja.pdf`がある．使い方の例は，`\documentclass`から`\end{document}`までの完全な文書（`doc/latex/folarrow/lite-examples/ex*.tex`）で，そのまま写して組める．例の結果は`lite-examples/build.sh`で，ほかのファイルを使わないことを確かめるため，`folarrow.sty`だけを置いたディレクトリで組んで作る．
+- 簡易版だけの説明書`doc/latex/folarrow/folarrow-lite-ja.pdf`（英語版は`folarrow-lite-en.pdf`）がある．使い方の例は，`\documentclass`から`\end{document}`までの完全な文書（`doc/latex/folarrow/lite-examples/ex*.tex`）で，そのまま写して組める．例の結果は`lite-examples/build.sh`で，ほかのファイルを使わないことを確かめるため，`folarrow.sty`だけを置いたディレクトリで組んで作る．
 
 ## ライセンス
 
@@ -201,7 +201,9 @@ export TEXMFHOME=/path/to/texmf-folto
 - `tools/fontbuild/mkfolotf.py`：本文用の矢印のOTFを作る（CTANの配布物では`source/`に入る）
 - `tools/fontdata/`：実測と検証の道具（`measure.py`，`mkdata.py`，`mkreport.py`，書体の一覧`fonts.json`，結果`results*.json`）
 - `doc/latex/folarrow/folarrow-lite-ja.tex`，`.pdf`：簡易版（`lite`）の説明書（upLaTeX＋dvipdfmxで組む．例は`lite-examples/`）
+- `doc/latex/folarrow/folarrow-lite-en.tex`，`.pdf`：簡易版の説明書の英語版（同じくupLaTeX＋dvipdfmxで組む）
 - `doc/latex/folarrow/folarrow-ja.tex`，`.pdf`：説明書（upLaTeX＋dvipdfmxで組む．検証表`folarrow-verify.tex`を読み込む）
+- `doc/latex/folarrow/folarrow-en.tex`，`.pdf`：説明書の英語版（同じくupLaTeX＋dvipdfmxで組む．検証表`folarrow-verify-en.tex`を読み込む）
 - `licenses/`：ライセンスの本文と，矢印のフォントのライセンスの一覧`FONTS.md`（`tools/ctan/mkfontlicenses.py`で作る）
 - `tools/ctan/`：CTANに出すアーカイブを作る道具（`mkctan.sh`）
 - `ctan/`：CTANに出す配布物のREADME（`README.md`，`README-ja.md`）

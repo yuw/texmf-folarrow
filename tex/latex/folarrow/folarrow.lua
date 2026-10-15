@@ -11,6 +11,7 @@
 --   TeXに返す．グリフの形の情報がない
 --   フォント（TFMだけのType 1フォントなど）では何も返さない．
 --
+-- Author: Yuwsuke Kieda
 -- Copyright (c) 2026 Yuwsuke Kieda
 -- This file is part of the folarrow package, released under the MIT License
 -- (see the file LICENSE). The arrow fonts of the package keep the licenses of

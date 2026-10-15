@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{amscd}
+\usepackage{tikz-cd}
+\usepackage{folarrow}
+\folarrowsetup{gap=0.45}  % whole document: slightly wider spacing of the strokes
+\begin{document}
+\[
+\begin{CD} E\\ @FVV{\pi}V\\ M \end{CD}
+\qquad
+{\folarrowsetup{span=1.5, lean=0.5}  % only inside this group
+\begin{CD} E\\ @FVV{\pi}V\\ M \end{CD}}
+\qquad
+{\folarrowsetup{thickness=0.8pt}
+\begin{tikzcd} E \arrow[d, foliated, "\pi"] \\ M \end{tikzcd}}
+\qquad
+\begin{CD} E\\ @FVV{\pi}V\\ M \end{CD}
+\]
+$E \folrightarrow M$,
+{\folarrowsetup{shift=0.5}$E \folrightarrow M$},
+$E \folrightarrow M$
+\end{document}
